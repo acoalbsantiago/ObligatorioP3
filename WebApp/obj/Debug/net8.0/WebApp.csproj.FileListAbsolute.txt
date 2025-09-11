@@ -1,0 +1,11 @@
+H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\WebApp\obj\Debug\net8.0\WebApp.GeneratedMSBuildEditorConfig.editorconfig
+H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\WebApp\obj\Debug\net8.0\WebApp.AssemblyInfoInputs.cache
+H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\WebApp\obj\Debug\net8.0\WebApp.AssemblyInfo.cs
+H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\WebApp\obj\Debug\net8.0\WebApp.csproj.CoreCompileInputs.cache
+H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\WebApp\obj\Debug\net8.0\WebApp.MvcApplicationPartsAssemblyInfo.cache
+H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\WebApp\obj\Debug\net8.0\WebApp.RazorAssemblyInfo.cache
+H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\WebApp\obj\Debug\net8.0\WebApp.RazorAssemblyInfo.cs
+H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\WebApp\obj\Debug\net8.0\WebApp.sourcelink.json
+H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\WebApp\obj\Debug\net8.0\WebApp.dll
+H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\WebApp\obj\Debug\net8.0\refint\WebApp.dll
+H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\WebApp\obj\Debug\net8.0\WebApp.pdb

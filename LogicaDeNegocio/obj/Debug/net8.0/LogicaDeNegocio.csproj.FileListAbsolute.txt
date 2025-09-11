@@ -1,0 +1,12 @@
+H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\LogicaDeNegocio\bin\Debug\net8.0\LogicaDeNegocio.deps.json
+H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\LogicaDeNegocio\bin\Debug\net8.0\LogicaDeNegocio.dll
+H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\LogicaDeNegocio\bin\Debug\net8.0\LogicaDeNegocio.pdb
+H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\LogicaDeNegocio\obj\Debug\net8.0\LogicaDeNegocio.GeneratedMSBuildEditorConfig.editorconfig
+H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\LogicaDeNegocio\obj\Debug\net8.0\LogicaDeNegocio.AssemblyInfoInputs.cache
+H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\LogicaDeNegocio\obj\Debug\net8.0\LogicaDeNegocio.AssemblyInfo.cs
+H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\LogicaDeNegocio\obj\Debug\net8.0\LogicaDeNegocio.csproj.CoreCompileInputs.cache
+H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\LogicaDeNegocio\obj\Debug\net8.0\LogicaDeNegocio.sourcelink.json
+H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\LogicaDeNegocio\obj\Debug\net8.0\LogicaDeNegocio.dll
+H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\LogicaDeNegocio\obj\Debug\net8.0\refint\LogicaDeNegocio.dll
+H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\LogicaDeNegocio\obj\Debug\net8.0\LogicaDeNegocio.pdb
+H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\LogicaDeNegocio\obj\Debug\net8.0\ref\LogicaDeNegocio.dll
