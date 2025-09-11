@@ -1,7 +1,48 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "H:\\Mi unidad\\ATI\\P3\\Obligatorio-1\\Obligatorio\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{199BBE53-2A56-4801-9D43-E0D41D11E63F}|WebApp\\WebApp.csproj|c:\\users\\e5141734\\desktop\\brou\\obligatorio\\webapp\\views\\tipodegasto\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{199BBE53-2A56-4801-9D43-E0D41D11E63F}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\tipodegasto\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{199BBE53-2A56-4801-9D43-E0D41D11E63F}|WebApp\\WebApp.csproj|c:\\users\\e5141734\\desktop\\brou\\obligatorio\\webapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{199BBE53-2A56-4801-9D43-E0D41D11E63F}|WebApp\\WebApp.csproj|solutionrelative:webapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F567539E-0366-4417-9237-B17B0ED07EB0}|LogicaDeAplicacion\\LogicaDeAplicacion.csproj|c:\\users\\e5141734\\desktop\\brou\\obligatorio\\logicadeaplicacion\\casosdeuso\\tipodegasto\\obtenertipodegastocu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F567539E-0366-4417-9237-B17B0ED07EB0}|LogicaDeAplicacion\\LogicaDeAplicacion.csproj|solutionrelative:logicadeaplicacion\\casosdeuso\\tipodegasto\\obtenertipodegastocu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F567539E-0366-4417-9237-B17B0ED07EB0}|LogicaDeAplicacion\\LogicaDeAplicacion.csproj|c:\\users\\e5141734\\desktop\\brou\\obligatorio\\logicadeaplicacion\\mappers\\tipodegastomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F567539E-0366-4417-9237-B17B0ED07EB0}|LogicaDeAplicacion\\LogicaDeAplicacion.csproj|solutionrelative:logicadeaplicacion\\mappers\\tipodegastomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CBBEDBBF-FCE9-43DA-AB63-21B508F9A06F}|AccesoADatos\\AccesoADatos.csproj|c:\\users\\e5141734\\desktop\\brou\\obligatorio\\accesoadatos\\repositorios\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBBEDBBF-FCE9-43DA-AB63-21B508F9A06F}|AccesoADatos\\AccesoADatos.csproj|solutionrelative:accesoadatos\\repositorios\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{199BBE53-2A56-4801-9D43-E0D41D11E63F}|WebApp\\WebApp.csproj|c:\\users\\e5141734\\desktop\\brou\\obligatorio\\webapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{199BBE53-2A56-4801-9D43-E0D41D11E63F}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F567539E-0366-4417-9237-B17B0ED07EB0}|LogicaDeAplicacion\\LogicaDeAplicacion.csproj|c:\\users\\e5141734\\desktop\\brou\\obligatorio\\logicadeaplicacion\\dtos\\tipodegastodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F567539E-0366-4417-9237-B17B0ED07EB0}|LogicaDeAplicacion\\LogicaDeAplicacion.csproj|solutionrelative:logicadeaplicacion\\dtos\\tipodegastodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CBBEDBBF-FCE9-43DA-AB63-21B508F9A06F}|AccesoADatos\\AccesoADatos.csproj|c:\\users\\e5141734\\desktop\\brou\\obligatorio\\accesoadatos\\ef\\obligatoriocontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBBEDBBF-FCE9-43DA-AB63-21B508F9A06F}|AccesoADatos\\AccesoADatos.csproj|solutionrelative:accesoadatos\\ef\\obligatoriocontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{199BBE53-2A56-4801-9D43-E0D41D11E63F}|WebApp\\WebApp.csproj|c:\\users\\e5141734\\desktop\\brou\\obligatorio\\webapp\\controllers\\tipodegastocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{199BBE53-2A56-4801-9D43-E0D41D11E63F}|WebApp\\WebApp.csproj|solutionrelative:webapp\\controllers\\tipodegastocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CBBEDBBF-FCE9-43DA-AB63-21B508F9A06F}|AccesoADatos\\AccesoADatos.csproj|c:\\users\\e5141734\\desktop\\brou\\obligatorio\\accesoadatos\\migrations\\20250911174724_creandolabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBBEDBBF-FCE9-43DA-AB63-21B508F9A06F}|AccesoADatos\\AccesoADatos.csproj|solutionrelative:accesoadatos\\migrations\\20250911174724_creandolabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,6 +63,132 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\WebApp\\Views\\TipoDeGasto\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApp\\Views\\TipoDeGasto\\Index.cshtml",
+              "ToolTip": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\WebApp\\Views\\TipoDeGasto\\Index.cshtml",
+              "RelativeToolTip": "WebApp\\Views\\TipoDeGasto\\Index.cshtml",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAABYAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-11T19:00:39.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ObtenerTipoDeGastoCU.cs",
+              "DocumentMoniker": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\LogicaDeAplicacion\\CasosDeUso\\TipoDeGasto\\ObtenerTipoDeGastoCU.cs",
+              "RelativeDocumentMoniker": "LogicaDeAplicacion\\CasosDeUso\\TipoDeGasto\\ObtenerTipoDeGastoCU.cs",
+              "ToolTip": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\LogicaDeAplicacion\\CasosDeUso\\TipoDeGasto\\ObtenerTipoDeGastoCU.cs",
+              "RelativeToolTip": "LogicaDeAplicacion\\CasosDeUso\\TipoDeGasto\\ObtenerTipoDeGastoCU.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAswCEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T18:05:37.723Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\WebApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "WebApp\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\WebApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "WebApp\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABwAAAB0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-11T18:04:43.227Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UsuarioRepository.cs",
+              "DocumentMoniker": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\AccesoADatos\\Repositorios\\UsuarioRepository.cs",
+              "RelativeDocumentMoniker": "AccesoADatos\\Repositorios\\UsuarioRepository.cs",
+              "ToolTip": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\AccesoADatos\\Repositorios\\UsuarioRepository.cs",
+              "RelativeToolTip": "AccesoADatos\\Repositorios\\UsuarioRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T17:56:30.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TipoDeGastoMapper.cs",
+              "DocumentMoniker": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\LogicaDeAplicacion\\Mappers\\TipoDeGastoMapper.cs",
+              "RelativeDocumentMoniker": "LogicaDeAplicacion\\Mappers\\TipoDeGastoMapper.cs",
+              "ToolTip": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\LogicaDeAplicacion\\Mappers\\TipoDeGastoMapper.cs",
+              "RelativeToolTip": "LogicaDeAplicacion\\Mappers\\TipoDeGastoMapper.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABEAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T18:27:55.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\WebApp\\Program.cs",
+              "RelativeDocumentMoniker": "WebApp\\Program.cs",
+              "ToolTip": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\WebApp\\Program.cs",
+              "RelativeToolTip": "WebApp\\Program.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABwAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T13:48:59.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ObligatorioContext.cs",
+              "DocumentMoniker": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\AccesoADatos\\EF\\ObligatorioContext.cs",
+              "RelativeDocumentMoniker": "AccesoADatos\\EF\\ObligatorioContext.cs",
+              "ToolTip": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\AccesoADatos\\EF\\ObligatorioContext.cs",
+              "RelativeToolTip": "AccesoADatos\\EF\\ObligatorioContext.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAAAA8AAABPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T17:49:33.499Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "20250911174724_creandoLaBase.cs",
+              "DocumentMoniker": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\AccesoADatos\\Migrations\\20250911174724_creandoLaBase.cs",
+              "RelativeDocumentMoniker": "AccesoADatos\\Migrations\\20250911174724_creandoLaBase.cs",
+              "ToolTip": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\AccesoADatos\\Migrations\\20250911174724_creandoLaBase.cs",
+              "RelativeToolTip": "AccesoADatos\\Migrations\\20250911174724_creandoLaBase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T17:47:25.15Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TipoDeGastoDTO.cs",
+              "DocumentMoniker": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\LogicaDeAplicacion\\DTOs\\TipoDeGastoDTO.cs",
+              "RelativeDocumentMoniker": "LogicaDeAplicacion\\DTOs\\TipoDeGastoDTO.cs",
+              "ToolTip": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\LogicaDeAplicacion\\DTOs\\TipoDeGastoDTO.cs",
+              "RelativeToolTip": "LogicaDeAplicacion\\DTOs\\TipoDeGastoDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T17:38:37.922Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TipoDeGastoController.cs",
+              "DocumentMoniker": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\WebApp\\Controllers\\TipoDeGastoController.cs",
+              "RelativeDocumentMoniker": "WebApp\\Controllers\\TipoDeGastoController.cs",
+              "ToolTip": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\WebApp\\Controllers\\TipoDeGastoController.cs",
+              "RelativeToolTip": "WebApp\\Controllers\\TipoDeGastoController.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAcwBkAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T17:31:58.35Z"
             }
           ]
         },

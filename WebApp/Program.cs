@@ -1,3 +1,10 @@
+using AccesoADatos.EF;
+using AccesoADatos.Repositorios;
+using LogicaDeAplicacion.CasosDeUso.TipoDeGasto;
+using LogicaDeAplicacion.InterfacesCU.TipoDeGasto;
+using LogicaDeNegocio.InterfacesRepositorio;
+using Microsoft.EntityFrameworkCore;
+
 namespace WebApp;
 
 public class Program
@@ -6,8 +13,20 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        builder.Services.AddDbContext<DbContext, ObligatorioContext>(
+            options => options.UseSqlServer(builder.Configuration.GetConnectionString("MiDB"))
+            );
+
         // Add services to the container.
         builder.Services.AddControllersWithViews();
+
+
+        //Repositorios DI
+        builder.Services.AddScoped<ITipoDeGastoRepository, TipoDeGastoRepository>();
+
+
+        //casosDeUso DI
+        builder.Services.AddScoped<IObtenerTipoDeGasto, ObtenerTipoDeGastoCU>();
 
         var app = builder.Build();
 

@@ -10,18 +10,23 @@ namespace LogicaDeAplicacion.Mappers
 {
     public class TipoDeGastoMapper
     {
+        public static TipoDeGasto FromDTO(TipoDeGastoDTO tipoDTO)
+        {
+            return new TipoDeGasto
+            { 
+                Nombre = tipoDTO.Nombre,
+                Descripcion = tipoDTO.Descripcion
+            };
+        }
+
         public static TipoDeGastoDTO ToDTO(TipoDeGasto tipo)
         {
             return new TipoDeGastoDTO
             {
-                Nombre = tipo.Nombre
+                Nombre = tipo.Nombre,
+                Descripcion = tipo.Descripcion
             };
         }
-    
-        public static TipoDeGasto FromDTO(TipoDeGastoDTO tipoDTO)
-        {
-            return new TipoDeGasto();
-        }
-    
+
     }
 }

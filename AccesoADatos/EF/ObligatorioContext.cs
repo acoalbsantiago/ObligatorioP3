@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,10 +13,12 @@ namespace AccesoADatos.EF
     {
        public DbSet<TipoDeGasto> tipos  { get; set; }
 
+        public ObligatorioContext(DbContextOptions options) : base(options) { }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            optionsBuilder.UseSqlServer(@"SERVER=(localdb)\MsSqlLocalDb; DATABASE=Obligatorio; Integrated Security = true");
+            base.OnModelCreating(modelBuilder);
+            //optionsBuilder.UseSqlServer(@"SERVER=(localdb)\W180BS45;DATABASE=Obligatorio;Integrated Security=true");
         }
     
     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xkaOZOgiI/mPUV0C9wDyEaRLrLmmSE/RwlXLcPWSxxZ7gHIw77dCxgFbzFZbHHYuUTi8gFXMPzn5/ltiN8vdKw==",
+  "dgSpecHash": "SsyN5FYOfIx13NofhNaJO4xkpHTu83vrdBwr5Y3wbgdHxGkNDOVfSC3PuWAdj/ic79THgwE7yosNw5v6B/gbqA==",
   "success": true,
-  "projectFilePath": "H:\\Mi unidad\\ATI\\P3\\Obligatorio-1\\Obligatorio\\LogicaDeAplicacion\\LogicaDeAplicacion.csproj",
+  "projectFilePath": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\LogicaDeAplicacion\\LogicaDeAplicacion.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\e5141734\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\e5141734\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

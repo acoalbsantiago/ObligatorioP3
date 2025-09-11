@@ -13,9 +13,9 @@ namespace AccesoADatos.Repositorios
     {
         private ObligatorioContext _context;
 
-        public UsuarioRepository() 
+        public UsuarioRepository(ObligatorioContext contexto) 
         {
-            _context = new ObligatorioContext();
+            _context = contexto;
         }
 
         public void Add(Usuario value)

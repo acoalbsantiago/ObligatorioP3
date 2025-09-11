@@ -1,4 +1,5 @@
-﻿using LogicaDeNegocio.Entidades;
+﻿using AccesoADatos.EF;
+using LogicaDeNegocio.Entidades;
 using LogicaDeNegocio.InterfacesRepositorio;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,17 @@ namespace AccesoADatos.Repositorios
 {
     public class TipoDeGastoRepository : ITipoDeGastoRepository
     {
+        private ObligatorioContext _context;
+
+        public TipoDeGastoRepository(ObligatorioContext context)
+        {
+            _context = context;
+        }
+
         public void Add(TipoDeGasto value)
         {
-            throw new NotImplementedException();
+            //validar antes
+            _context.Add(value);
         }
 
         public TipoDeGasto FindById(int id)
@@ -22,7 +31,7 @@ namespace AccesoADatos.Repositorios
 
         public IEnumerable<TipoDeGasto> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.tipos;
         }
 
         public void Remove(int id)

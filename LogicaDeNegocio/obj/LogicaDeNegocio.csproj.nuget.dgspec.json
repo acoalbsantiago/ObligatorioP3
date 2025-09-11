@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "H:\\Mi unidad\\ATI\\P3\\Obligatorio-1\\Obligatorio\\LogicaDeNegocio\\LogicaDeNegocio.csproj": {}
+    "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\LogicaDeNegocio\\LogicaDeNegocio.csproj": {}
   },
   "projects": {
-    "H:\\Mi unidad\\ATI\\P3\\Obligatorio-1\\Obligatorio\\LogicaDeNegocio\\LogicaDeNegocio.csproj": {
+    "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\LogicaDeNegocio\\LogicaDeNegocio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\Mi unidad\\ATI\\P3\\Obligatorio-1\\Obligatorio\\LogicaDeNegocio\\LogicaDeNegocio.csproj",
+        "projectUniqueName": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\LogicaDeNegocio\\LogicaDeNegocio.csproj",
         "projectName": "LogicaDeNegocio",
-        "projectPath": "H:\\Mi unidad\\ATI\\P3\\Obligatorio-1\\Obligatorio\\LogicaDeNegocio\\LogicaDeNegocio.csproj",
+        "projectPath": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\LogicaDeNegocio\\LogicaDeNegocio.csproj",
         "packagesPath": "C:\\Users\\e5141734\\.nuget\\packages\\",
-        "outputPath": "H:\\Mi unidad\\ATI\\P3\\Obligatorio-1\\Obligatorio\\LogicaDeNegocio\\obj\\",
+        "outputPath": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\LogicaDeNegocio\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\e5141734\\AppData\\Roaming\\NuGet\\NuGet.Config",

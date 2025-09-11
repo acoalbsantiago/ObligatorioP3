@@ -1,0 +1,94 @@
+﻿using LogicaDeAplicacion.CasosDeUso.TipoDeGasto;
+using LogicaDeAplicacion.InterfacesCU.TipoDeGasto;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace WebApp.Controllers
+{
+    public class TipoDeGastoController : Controller
+    {
+
+        private IObtenerTipoDeGasto _obtenerTiposDeGasto;
+
+        public TipoDeGastoController(IObtenerTipoDeGasto obtenerTipoDeGasto)
+        {
+            _obtenerTiposDeGasto = obtenerTipoDeGasto;
+        }
+
+        // GET: TipoDeGastoController
+        public ActionResult Index()
+        {
+            
+            return View(_obtenerTiposDeGasto.ObtenerTipoDeGasto());
+        }
+
+        // GET: TipoDeGastoController/Details/5
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
+
+        // GET: TipoDeGastoController/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: TipoDeGastoController/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: TipoDeGastoController/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        // POST: TipoDeGastoController/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: TipoDeGastoController/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: TipoDeGastoController/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+    }
+}
