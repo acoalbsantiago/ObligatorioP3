@@ -1,4 +1,5 @@
 ﻿using LogicaDeAplicacion.CasosDeUso.TipoDeGasto;
+using LogicaDeAplicacion.DTOs;
 using LogicaDeAplicacion.InterfacesCU.TipoDeGasto;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,10 +10,16 @@ namespace WebApp.Controllers
     {
 
         private IObtenerTipoDeGasto _obtenerTiposDeGasto;
+        private IAgregarTipoDeGasto _agregarTipoDeGasto;
 
-        public TipoDeGastoController(IObtenerTipoDeGasto obtenerTipoDeGasto)
+        public TipoDeGastoController
+                (
+                    IObtenerTipoDeGasto obtenerTipoDeGasto,
+                    IAgregarTipoDeGasto agregarTipoDeGasto
+                )
         {
             _obtenerTiposDeGasto = obtenerTipoDeGasto;
+            _agregarTipoDeGasto = agregarTipoDeGasto;
         }
 
         // GET: TipoDeGastoController
@@ -31,16 +38,18 @@ namespace WebApp.Controllers
         // GET: TipoDeGastoController/Create
         public ActionResult Create()
         {
+            
             return View();
         }
 
         // POST: TipoDeGastoController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(TipoDeGastoDTO tipoDeGasto)
         {
             try
             {
+                _agregarTipoDeGasto.AgregarTipoDeGasto(tipoDeGasto);
                 return RedirectToAction(nameof(Index));
             }
             catch

@@ -7650,19 +7650,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\e5141734\\.nuget\\packages\\": {}
+    "C:\\Users\\santi\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\WebApp\\WebApp.csproj",
+      "projectUniqueName": "C:\\Users\\santi\\Desktop\\obligatorioP3\\WebApp\\WebApp.csproj",
       "projectName": "WebApp",
-      "projectPath": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\WebApp\\WebApp.csproj",
-      "packagesPath": "C:\\Users\\e5141734\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\WebApp\\obj\\",
+      "projectPath": "C:\\Users\\santi\\Desktop\\obligatorioP3\\WebApp\\WebApp.csproj",
+      "packagesPath": "C:\\Users\\santi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\santi\\Desktop\\obligatorioP3\\WebApp\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\e5141734\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\santi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7676,14 +7681,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\AccesoADatos\\AccesoADatos.csproj": {
-              "projectPath": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\AccesoADatos\\AccesoADatos.csproj"
+            "C:\\Users\\santi\\Desktop\\obligatorioP3\\AccesoADatos\\AccesoADatos.csproj": {
+              "projectPath": "C:\\Users\\santi\\Desktop\\obligatorioP3\\AccesoADatos\\AccesoADatos.csproj"
             },
-            "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\LogicaDeAplicacion\\LogicaDeAplicacion.csproj": {
-              "projectPath": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\LogicaDeAplicacion\\LogicaDeAplicacion.csproj"
+            "C:\\Users\\santi\\Desktop\\obligatorioP3\\LogicaDeAplicacion\\LogicaDeAplicacion.csproj": {
+              "projectPath": "C:\\Users\\santi\\Desktop\\obligatorioP3\\LogicaDeAplicacion\\LogicaDeAplicacion.csproj"
             },
-            "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\LogicaDeNegocio\\LogicaDeNegocio.csproj": {
-              "projectPath": "C:\\Users\\e5141734\\Desktop\\BROU\\obligatorio\\LogicaDeNegocio\\LogicaDeNegocio.csproj"
+            "C:\\Users\\santi\\Desktop\\obligatorioP3\\LogicaDeNegocio\\LogicaDeNegocio.csproj": {
+              "projectPath": "C:\\Users\\santi\\Desktop\\obligatorioP3\\LogicaDeNegocio\\LogicaDeNegocio.csproj"
             }
           }
         }
@@ -7697,7 +7702,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0": {
@@ -7733,7 +7739,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -21,7 +21,8 @@ namespace AccesoADatos.Repositorios
         public void Add(TipoDeGasto value)
         {
             //validar antes
-            _context.Add(value);
+            _context.tipos.Add(value);
+            _context.SaveChanges();
         }
 
         public TipoDeGasto FindById(int id)
