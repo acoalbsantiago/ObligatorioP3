@@ -17,6 +17,10 @@ public class Program
             options => options.UseSqlServer(builder.Configuration.GetConnectionString("MiDB"))
             );
 
+        Console.WriteLine($"Entorno actual: {builder.Environment.EnvironmentName}");
+        Console.WriteLine($"Connection string: {builder.Configuration.GetConnectionString("MiDB")}");
+
+
         // Add services to the container.
         builder.Services.AddControllersWithViews();
 
@@ -27,6 +31,8 @@ public class Program
 
         //casosDeUso DI
         builder.Services.AddScoped<IObtenerTipoDeGasto, ObtenerTipoDeGastoCU>();
+        builder.Services.AddScoped<IAgregarTipoDeGasto, AgregarTipoDeGasto>();
+        
 
         var app = builder.Build();
 
