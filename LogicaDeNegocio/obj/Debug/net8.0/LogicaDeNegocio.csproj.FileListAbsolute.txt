@@ -46,3 +46,4 @@ C:\Users\santi\Desktop\obligatorioP3\LogicaDeNegocio\obj\Debug\net8.0\LogicaDeNe
 C:\Users\santi\Desktop\obligatorioP3\LogicaDeNegocio\obj\Debug\net8.0\refint\LogicaDeNegocio.dll
 C:\Users\santi\Desktop\obligatorioP3\LogicaDeNegocio\obj\Debug\net8.0\LogicaDeNegocio.pdb
 C:\Users\santi\Desktop\obligatorioP3\LogicaDeNegocio\obj\Debug\net8.0\ref\LogicaDeNegocio.dll
+C:\Users\e5141734\Desktop\BROU\obligatorio\LogicaDeNegocio\obj\Debug\net8.0\LogicaDeNegocio.csproj.AssemblyReference.cache

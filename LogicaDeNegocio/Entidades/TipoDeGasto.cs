@@ -16,6 +16,11 @@ namespace LogicaDeNegocio.Entidades
         public string Descripcion { get; set; }
 
         public TipoDeGasto() { }
-    
+        
+        public TipoDeGasto(string nombre, string descripcion)
+        {
+            this.Nombre = nombre;
+            this.Descripcion = descripcion;
+        }
     }
 }

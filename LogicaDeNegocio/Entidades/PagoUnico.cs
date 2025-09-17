@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace LogicaDeNegocio.Entidades
 {
-    public class PagoUnico
+    public class PagoUnico : Pago
     {
+        public DateTime FechaPago { get; set; }
+        public int NumFactura { get; set; }
+
     }
 }

@@ -14,6 +14,7 @@ namespace LogicaDeAplicacion.Mappers
         {
             return new TipoDeGasto
             { 
+                Id = tipoDTO.Id,
                 Nombre = tipoDTO.Nombre,
                 Descripcion = tipoDTO.Descripcion
             };
@@ -23,6 +24,7 @@ namespace LogicaDeAplicacion.Mappers
         {
             return new TipoDeGastoDTO
             {
+                Id = tipo.Id,
                 Nombre = tipo.Nombre,
                 Descripcion = tipo.Descripcion
             };

@@ -10,6 +10,7 @@ namespace LogicaDeAplicacion.DTOs
 {
     public class TipoDeGastoDTO
     {
+        public int Id { get; set; }
         [StringLength(20, MinimumLength = 3, ErrorMessage = "Nombre Invalido")]
         public string Nombre { get; set; }
         [DisplayName("Tipo de gasto descrip")]

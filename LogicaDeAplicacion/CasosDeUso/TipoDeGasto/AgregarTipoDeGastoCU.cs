@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace LogicaDeAplicacion.CasosDeUso.TipoDeGasto
 {
-    public class AgregarTipoDeGasto : IAgregarTipoDeGasto
+    public class AgregarTipoDeGastoCU : IAgregarTipoDeGasto
     {
         private ITipoDeGastoRepository _repo;
         
-        public AgregarTipoDeGasto(ITipoDeGastoRepository repo)
+        public AgregarTipoDeGastoCU(ITipoDeGastoRepository repo)
         {
             _repo = repo;
         }

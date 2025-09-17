@@ -11,15 +11,20 @@ namespace WebApp.Controllers
 
         private IObtenerTipoDeGasto _obtenerTiposDeGasto;
         private IAgregarTipoDeGasto _agregarTipoDeGasto;
+        private IEliminarTipoDeGasto _eliminarTipoDeGasto;
+        private IObtenerTipoDeGastoPorId _obtenerTipoDeGastoPorId;
 
-        public TipoDeGastoController
-                (
+        public TipoDeGastoController(
                     IObtenerTipoDeGasto obtenerTipoDeGasto,
-                    IAgregarTipoDeGasto agregarTipoDeGasto
-                )
+                    IAgregarTipoDeGasto agregarTipoDeGasto,
+                    IEliminarTipoDeGasto eliminarTipoDeGasto,
+                    IObtenerTipoDeGastoPorId obtenerTipoDeGastoPorId)
         {
             _obtenerTiposDeGasto = obtenerTipoDeGasto;
             _agregarTipoDeGasto = agregarTipoDeGasto;
+            _eliminarTipoDeGasto = eliminarTipoDeGasto;
+            _obtenerTipoDeGastoPorId = obtenerTipoDeGastoPorId;
+
         }
 
         // GET: TipoDeGastoController
@@ -82,7 +87,7 @@ namespace WebApp.Controllers
         // GET: TipoDeGastoController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(_obtenerTipoDeGastoPorId.ObtenerTipoDeGastoPorId(id));
         }
 
         // POST: TipoDeGastoController/Delete/5
@@ -92,7 +97,9 @@ namespace WebApp.Controllers
         {
             try
             {
+                _eliminarTipoDeGasto.EliminarTipoDeGasto(id);
                 return RedirectToAction(nameof(Index));
+
             }
             catch
             {

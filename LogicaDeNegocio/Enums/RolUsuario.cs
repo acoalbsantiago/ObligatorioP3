@@ -8,5 +8,8 @@ namespace LogicaDeNegocio.Enums
 {
     public enum RolUsuario
     {
+        ADMINISTRADOR = 0,
+        GERENTE = 1,
+        EMPLEADO = 2,
     }
 }

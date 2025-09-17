@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace LogicaDeNegocio.Enums
 {
-    public enum MetodoPago
+    public enum MetodoDePago
     {
+        CREDITO = 0,
+        EFECTIVO = 1,
     }
 }

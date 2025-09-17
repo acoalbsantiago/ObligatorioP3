@@ -31,8 +31,11 @@ public class Program
 
         //casosDeUso DI
         builder.Services.AddScoped<IObtenerTipoDeGasto, ObtenerTipoDeGastoCU>();
-        builder.Services.AddScoped<IAgregarTipoDeGasto, AgregarTipoDeGasto>();
+        builder.Services.AddScoped<IAgregarTipoDeGasto, AgregarTipoDeGastoCU>();
+        builder.Services.AddScoped<IEliminarTipoDeGasto, EliminarTipoDeGastoCU>();
+        builder.Services.AddScoped<IObtenerTipoDeGastoPorId, ObtenerTipoDeGastoPorIdCU>();
         
+
 
         var app = builder.Build();
 

@@ -9,7 +9,6 @@ H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\WebApp\obj\Debug\net8.0\WebApp.sou
 H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\WebApp\obj\Debug\net8.0\WebApp.dll
 H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\WebApp\obj\Debug\net8.0\refint\WebApp.dll
 H:\Mi unidad\ATI\P3\Obligatorio-1\Obligatorio\WebApp\obj\Debug\net8.0\WebApp.pdb
-C:\Users\e5141734\Desktop\BROU\obligatorio\WebApp\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\e5141734\Desktop\BROU\obligatorio\WebApp\bin\Debug\net8.0\appsettings.json
 C:\Users\e5141734\Desktop\BROU\obligatorio\WebApp\bin\Debug\net8.0\WebApp.staticwebassets.runtime.json
 C:\Users\e5141734\Desktop\BROU\obligatorio\WebApp\bin\Debug\net8.0\WebApp.exe
@@ -818,3 +817,6 @@ C:\Users\santi\Desktop\obligatorioP3\WebApp\obj\Debug\net8.0\refint\WebApp.dll
 C:\Users\santi\Desktop\obligatorioP3\WebApp\obj\Debug\net8.0\WebApp.pdb
 C:\Users\santi\Desktop\obligatorioP3\WebApp\obj\Debug\net8.0\WebApp.genruntimeconfig.cache
 C:\Users\santi\Desktop\obligatorioP3\WebApp\obj\Debug\net8.0\ref\WebApp.dll
+C:\Users\e5141734\Desktop\BROU\obligatorio\WebApp\bin\Debug\net8.0\appsettings.Home.json
+C:\Users\e5141734\Desktop\BROU\obligatorio\WebApp\obj\Debug\net8.0\WebApp.Properties.Resources.resources
+C:\Users\e5141734\Desktop\BROU\obligatorio\WebApp\obj\Debug\net8.0\WebApp.csproj.GenerateResource.cache
