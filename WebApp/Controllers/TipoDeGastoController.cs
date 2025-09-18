@@ -13,17 +13,20 @@ namespace WebApp.Controllers
         private IAgregarTipoDeGasto _agregarTipoDeGasto;
         private IEliminarTipoDeGasto _eliminarTipoDeGasto;
         private IObtenerTipoDeGastoPorId _obtenerTipoDeGastoPorId;
+        private IEditarTipoDeGasto _editarTipoDeGasto;
 
         public TipoDeGastoController(
                     IObtenerTipoDeGasto obtenerTipoDeGasto,
                     IAgregarTipoDeGasto agregarTipoDeGasto,
                     IEliminarTipoDeGasto eliminarTipoDeGasto,
-                    IObtenerTipoDeGastoPorId obtenerTipoDeGastoPorId)
+                    IObtenerTipoDeGastoPorId obtenerTipoDeGastoPorId,
+                    IEditarTipoDeGasto editarTipoDeGasto)
         {
             _obtenerTiposDeGasto = obtenerTipoDeGasto;
             _agregarTipoDeGasto = agregarTipoDeGasto;
             _eliminarTipoDeGasto = eliminarTipoDeGasto;
             _obtenerTipoDeGastoPorId = obtenerTipoDeGastoPorId;
+            _editarTipoDeGasto = editarTipoDeGasto;
 
         }
 
@@ -37,7 +40,16 @@ namespace WebApp.Controllers
         // GET: TipoDeGastoController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            try
+            {
+                return View(_obtenerTipoDeGastoPorId.ObtenerTipoDeGastoPorId(id));
+            }
+            catch (Exception ex)
+            {
+
+                return RedirectToAction(nameof(Index));
+            }
+            
         }
 
         // GET: TipoDeGastoController/Create
@@ -66,28 +78,50 @@ namespace WebApp.Controllers
         // GET: TipoDeGastoController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            try
+            {
+                return View(_obtenerTipoDeGastoPorId.ObtenerTipoDeGastoPorId(id));
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = ex.Message;
+                return RedirectToAction(nameof(Index));
+            }
+            
         }
 
         // POST: TipoDeGastoController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(TipoDeGastoDTO tipoDTO)
         {
             try
             {
+                _editarTipoDeGasto.EditarTipoDeGasto(tipoDTO);
                 return RedirectToAction(nameof(Index));
+
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                
+                return RedirectToAction(nameof(Index));
+                
             }
         }
 
         // GET: TipoDeGastoController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(_obtenerTipoDeGastoPorId.ObtenerTipoDeGastoPorId(id));
+            try
+            {
+                return View(_obtenerTipoDeGastoPorId.ObtenerTipoDeGastoPorId(id));
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction(nameof(Index));
+               
+            }
+            
         }
 
         // POST: TipoDeGastoController/Delete/5

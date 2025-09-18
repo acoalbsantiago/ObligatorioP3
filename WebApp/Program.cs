@@ -34,7 +34,7 @@ public class Program
         builder.Services.AddScoped<IAgregarTipoDeGasto, AgregarTipoDeGastoCU>();
         builder.Services.AddScoped<IEliminarTipoDeGasto, EliminarTipoDeGastoCU>();
         builder.Services.AddScoped<IObtenerTipoDeGastoPorId, ObtenerTipoDeGastoPorIdCU>();
-        
+        builder.Services.AddScoped<IEditarTipoDeGasto, EditarTipoDeGastoCU>();
 
 
         var app = builder.Build();

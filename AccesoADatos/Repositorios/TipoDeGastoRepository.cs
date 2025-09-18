@@ -28,7 +28,8 @@ namespace AccesoADatos.Repositorios
 
         public TipoDeGasto FindById(int id)
         {
-            foreach(var tipo in _context.tipos)
+            
+            foreach(TipoDeGasto tipo in _context.tipos)
             {
                 if(tipo.Id == id)
                 {
@@ -45,12 +46,15 @@ namespace AccesoADatos.Repositorios
 
         public void Remove(int id)
         {
-            _context.Remove(id);
+            TipoDeGasto aBorrar = new TipoDeGasto { Id = id };
+            _context.tipos.Remove(aBorrar);
+            _context.SaveChanges();
         }
 
         public void Update(TipoDeGasto value)
         {
-            throw new NotImplementedException();
+            //_context.tipos.Update(value);
+            _context.SaveChanges();
         }
     }
 }
