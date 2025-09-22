@@ -1,4 +1,5 @@
 ﻿using LogicaDeNegocio.Enums;
+using LogicaDeNegocio.Interfaces;
 using LogicaDeNegocio.ValueObjets;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace LogicaDeNegocio.Entidades
 {
-    public class Usuario
+    public class Usuario : IValidable
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
@@ -23,5 +24,10 @@ namespace LogicaDeNegocio.Entidades
         public int EquipoId { get; set; }
 
         public Usuario () { }
+
+        public void Validar()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

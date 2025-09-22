@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AccesoADatos.EF;
 using LogicaDeNegocio.Entidades;
+using LogicaDeNegocio.Exceptions;
 using LogicaDeNegocio.InterfacesRepositorio;
 
 namespace AccesoADatos.Repositorios
@@ -30,7 +31,23 @@ namespace AccesoADatos.Repositorios
 
         public IEnumerable<Usuario> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Usuario;
+        }
+
+        public Usuario Login(string pass, string email)
+        {
+            foreach(Usuario usuario in _context.Usuario)
+            {
+                if (usuario.Email.Correo == email)
+                {
+                    if (usuario.Password == pass)
+                    {
+                        return usuario;
+                    }
+                    throw new UsuarioException("Nombre de usuario o contraseña incorrecta");
+                }
+            }
+            throw new UsuarioException("Nombre de usuario o contraseña incorrecta");
         }
 
         public void Remove(int id)

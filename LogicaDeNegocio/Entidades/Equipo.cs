@@ -8,7 +8,7 @@ namespace LogicaDeNegocio.Entidades
 {
     public class Equipo
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Nombre { get; set; }
         public List<Usuario> Usuarios { get; set; } = new List<Usuario>(); 
 

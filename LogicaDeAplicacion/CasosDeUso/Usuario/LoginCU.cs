@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogicaDeNegocio.Interfaces
+namespace LogicaDeAplicacion.CasosDeUso.Usuario
 {
-    public interface IValidable
+    internal class LoginCU
     {
-        public void Validar();
     }
 }

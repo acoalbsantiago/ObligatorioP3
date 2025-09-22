@@ -12,11 +12,11 @@ namespace AccesoADatos.EF
     public class ObligatorioContext : DbContext
     {
        public DbSet<TipoDeGasto> tipos  { get; set; }
-       //public DbSet<Pago> pagos {  get; set; }
-       //public DbSet<PagoRecurrente> pagoRecurrentes { get; set; }
-       //public DbSet<PagoUnico> PagoUnico { get; set; }
-       //public DbSet<Usuario> Usuario { get; set; }
-       //public DbSet<TipoDeGasto> tiposDeGasto { get; set; }
+        public DbSet<Pago> pagos { get; set; }
+        public DbSet<PagoRecurrente> pagoRecurrentes { get; set; }
+        public DbSet<PagoUnico> PagoUnico { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<TipoDeGasto> tiposDeGasto { get; set; }
 
         public ObligatorioContext(DbContextOptions options) : base(options) { }
 

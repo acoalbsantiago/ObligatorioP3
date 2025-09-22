@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogicaDeNegocio.Interfaces
+namespace LogicaDeAplicacion.Mappers
 {
-    public interface IValidable
+    public class UsuarioMapper
     {
-        public void Validar();
     }
 }
+    

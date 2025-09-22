@@ -10,5 +10,6 @@ namespace LogicaDeNegocio.ValueObjets
     [Owned]
     public class Email
     {
+        public string Correo { get; private set; }
     }
 }
