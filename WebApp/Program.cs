@@ -1,7 +1,9 @@
 using AccesoADatos.EF;
 using AccesoADatos.Repositorios;
 using LogicaDeAplicacion.CasosDeUso.TipoDeGasto;
+using LogicaDeAplicacion.CasosDeUso.Usuario;
 using LogicaDeAplicacion.InterfacesCU.TipoDeGasto;
+using LogicaDeAplicacion.InterfacesCU.Usuario;
 using LogicaDeNegocio.InterfacesRepositorio;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,19 +25,23 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
+        builder.Services.AddSession();
 
 
         //Repositorios DI
         builder.Services.AddScoped<ITipoDeGastoRepository, TipoDeGastoRepository>();
+        builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
 
-        //casosDeUso DI
+        //casosDeUso DI 
+        //tipoDeGasto
         builder.Services.AddScoped<IObtenerTipoDeGasto, ObtenerTipoDeGastoCU>();
         builder.Services.AddScoped<IAgregarTipoDeGasto, AgregarTipoDeGastoCU>();
         builder.Services.AddScoped<IEliminarTipoDeGasto, EliminarTipoDeGastoCU>();
         builder.Services.AddScoped<IObtenerTipoDeGastoPorId, ObtenerTipoDeGastoPorIdCU>();
         builder.Services.AddScoped<IEditarTipoDeGasto, EditarTipoDeGastoCU>();
-
+        //usuario
+        builder.Services.AddScoped<ILogin, LoginCU>();
 
         var app = builder.Build();
 
@@ -53,6 +59,7 @@ public class Program
         app.UseRouting();
 
         app.UseAuthorization();
+        app.UseSession();
 
         app.MapControllerRoute(
             name: "default",

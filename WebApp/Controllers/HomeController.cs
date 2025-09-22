@@ -1,16 +1,20 @@
 using System.Diagnostics;
+using LogicaDeAplicacion.DTOs;
+using LogicaDeAplicacion.InterfacesCU.Usuario;
+using LogicaDeNegocio.Exceptions;
 using Microsoft.AspNetCore.Mvc;
+using WebApp.Filters;
 using WebApp.Models;
 
 namespace WebApp.Controllers;
-
+[LogueadoFilter]
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private ILogin _login;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogin ILogin)
     {
-        _logger = logger;
+        _login = ILogin;
     }
 
     public IActionResult Index()
@@ -21,6 +25,29 @@ public class HomeController : Controller
     public IActionResult Login()
     {
         return View();
+    }
+    [HttpPost]
+    public IActionResult Login(string correo, string password)
+    {
+        try
+        {
+            UsuarioDTO logueado = this._login.Login(correo, password);
+            HttpContext.Session.SetString("usuario", logueado.Nombre);
+            HttpContext.Session.SetInt32("usuarioId", logueado.Id);
+            return RedirectToAction("Index");
+        }
+        catch (UsuarioException ex)
+        {
+            ViewBag.Error = ex.Message;
+            return View();
+        }
+        catch (Exception ex)
+        {
+            ViewBag.Error = "Sucedio un error inesperado";
+            return View();
+        }
+
+      
     }
 
     public IActionResult Privacy()

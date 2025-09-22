@@ -11,5 +11,10 @@ namespace LogicaDeNegocio.ValueObjets
     public class Email
     {
         public string Correo { get; private set; }
+
+        public Email(string correo)
+        {
+            this.Correo = correo;
+        }
     }
 }
