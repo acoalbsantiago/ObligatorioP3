@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using AccesoADatos.EF;
@@ -36,20 +37,30 @@ namespace AccesoADatos.Repositorios
 
         public Usuario Login(string pass, string email)
         {
-            foreach(Usuario usuario in _context.Usuario)
-            {
-                if (usuario.Email.Correo == email)
-                {
-                    if (usuario.Password == pass)
-                    {
-                        return usuario;
-                    }
-                    throw new UsuarioException("Nombre de usuario o contraseña incorrecta");
-                }
-            }
-            throw new UsuarioException("Nombre de usuario o contraseña incorrecta");
-        }
+            //foreach(Usuario usuario in _context.Usuario)
+            //{
+            //    if (usuario.Email.Correo == email)
+            //    {
+            //        if (usuario.Password == pass)
+            //        {
+            //            return usuario;
+            //        }
+            //        throw new UsuarioException("Nombre de usuario o contraseña incorrecta");
+            //    }
+            //}
+            //throw new UsuarioException("Nombre de usuario o contraseña incorrecta");
 
+            Usuario logueado = _context.Usuario.Where(
+                user => user.Password == pass &&
+                        user.Email.Correo == email
+                ).FirstOrDefault();
+            if(logueado == null)
+            {
+                throw new UsuarioException("Nombre de usuario o contraseña incorrecta");
+            }
+            return logueado;
+        }
+         
         public void Remove(int id)
         {
             throw new NotImplementedException();
