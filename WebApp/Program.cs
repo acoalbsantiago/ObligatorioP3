@@ -15,17 +15,17 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+
+        // Add services to the container.
+        builder.Services.AddControllersWithViews();
+        builder.Services.AddSession();
+
         builder.Services.AddDbContext<DbContext, ObligatorioContext>(
             options => options.UseSqlServer(builder.Configuration.GetConnectionString("MiDB"))
             );
 
         Console.WriteLine($"Entorno actual: {builder.Environment.EnvironmentName}");
         Console.WriteLine($"Connection string: {builder.Configuration.GetConnectionString("MiDB")}");
-
-
-        // Add services to the container.
-        builder.Services.AddControllersWithViews();
-        builder.Services.AddSession();
 
 
         //Repositorios DI
@@ -63,7 +63,7 @@ public class Program
 
         app.MapControllerRoute(
             name: "default",
-            pattern: "{controller=Home}/{action=Index}/{id?}");
+            pattern: "{controller=Home}/{action=Login}/{id?}");
 
         app.Run();
     }

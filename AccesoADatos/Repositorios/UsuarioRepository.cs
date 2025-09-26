@@ -35,7 +35,7 @@ namespace AccesoADatos.Repositorios
             return _context.Usuario;
         }
 
-        public Usuario Login(string pass, string email)
+        public Usuario Login(string email, string pass)
         {
             //foreach(Usuario usuario in _context.Usuario)
             //{

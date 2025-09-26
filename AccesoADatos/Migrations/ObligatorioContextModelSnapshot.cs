@@ -193,6 +193,10 @@ namespace AccesoADatos.Migrations
                             b1.Property<int>("UsuarioId")
                                 .HasColumnType("int");
 
+                            b1.Property<string>("Correo")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
                             b1.HasKey("UsuarioId");
 
                             b1.ToTable("Usuario");

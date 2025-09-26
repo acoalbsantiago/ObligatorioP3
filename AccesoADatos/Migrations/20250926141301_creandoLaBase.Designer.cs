@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AccesoADatos.Migrations
 {
     [DbContext(typeof(ObligatorioContext))]
-    [Migration("20250922141259_AgregandoRestoDeClases")]
-    partial class AgregandoRestoDeClases
+    [Migration("20250926141301_creandoLaBase")]
+    partial class creandoLaBase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -195,6 +195,10 @@ namespace AccesoADatos.Migrations
                         {
                             b1.Property<int>("UsuarioId")
                                 .HasColumnType("int");
+
+                            b1.Property<string>("Correo")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
 
                             b1.HasKey("UsuarioId");
 

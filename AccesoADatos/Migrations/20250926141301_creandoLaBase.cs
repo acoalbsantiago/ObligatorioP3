@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AccesoADatos.Migrations
 {
     /// <inheritdoc />
-    public partial class AgregandoRestoDeClases : Migration
+    public partial class creandoLaBase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -25,6 +25,20 @@ namespace AccesoADatos.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TipoDeGasto",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TipoDeGasto", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Usuario",
                 columns: table => new
                 {
@@ -33,6 +47,7 @@ namespace AccesoADatos.Migrations
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Apellido = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email_Correo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Rol = table.Column<int>(type: "int", nullable: false),
                     EquipoId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -102,6 +117,9 @@ namespace AccesoADatos.Migrations
         {
             migrationBuilder.DropTable(
                 name: "pagos");
+
+            migrationBuilder.DropTable(
+                name: "TipoDeGasto");
 
             migrationBuilder.DropTable(
                 name: "Usuario");
