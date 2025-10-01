@@ -1,7 +1,9 @@
 using AccesoADatos.EF;
 using AccesoADatos.Repositorios;
+using LogicaDeAplicacion.CasosDeUso.Pago;
 using LogicaDeAplicacion.CasosDeUso.TipoDeGasto;
 using LogicaDeAplicacion.CasosDeUso.Usuario;
+using LogicaDeAplicacion.InterfacesCU.Pago;
 using LogicaDeAplicacion.InterfacesCU.TipoDeGasto;
 using LogicaDeAplicacion.InterfacesCU.Usuario;
 using LogicaDeNegocio.InterfacesRepositorio;
@@ -42,6 +44,8 @@ public class Program
         builder.Services.AddScoped<IEditarTipoDeGasto, EditarTipoDeGastoCU>();
         //usuario
         builder.Services.AddScoped<ILogin, LoginCU>();
+        //pago
+        builder.Services.AddScoped<IAgregarPago, AgregarPagoCU>();
 
         var app = builder.Build();
 
@@ -63,7 +67,7 @@ public class Program
 
         app.MapControllerRoute(
             name: "default",
-            pattern: "{controller=Home}/{action=Login}/{id?}");
+            pattern: "{controller=Pago}/{action=Create}/{id?}");
 
         app.Run();
     }

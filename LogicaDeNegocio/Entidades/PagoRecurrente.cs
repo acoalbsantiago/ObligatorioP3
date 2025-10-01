@@ -11,5 +11,6 @@ namespace LogicaDeNegocio.Entidades
         public DateTime FechaDesde { get; set; }
         public DateTime FechaHasta { get; set; }
 
+        public PagoRecurrente(): base () { }
     }
 }

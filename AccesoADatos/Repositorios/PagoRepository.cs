@@ -1,4 +1,5 @@
-﻿using LogicaDeNegocio.Entidades;
+﻿using AccesoADatos.EF;
+using LogicaDeNegocio.Entidades;
 using LogicaDeNegocio.InterfacesRepositorio;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,16 @@ namespace AccesoADatos.Repositorios
 {
     public class PagoRepository : IPagoRepository
     {
+        private ObligatorioContext _context;
+
+        public PagoRepository(ObligatorioContext context)
+        {
+            _context = context;
+        }
         public void Add(Pago value)
         {
-            throw new NotImplementedException();
+            _context.pagos.Add(value);
+            _context.SaveChanges();
         }
 
         public Pago FindById(int id)

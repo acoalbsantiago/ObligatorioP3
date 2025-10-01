@@ -8,8 +8,9 @@ namespace LogicaDeNegocio.Entidades
 {
     public class PagoUnico : Pago
     {
-        public DateTime FechaPago { get; set; }
+        public DateTime? FechaPago { get; set; }
         public int NumFactura { get; set; }
 
+        public PagoUnico(): base() { }
     }
 }

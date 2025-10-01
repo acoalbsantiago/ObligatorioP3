@@ -1,15 +1,14 @@
 ﻿using LogicaDeAplicacion.DTOs;
-using LogicaDeNegocio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogicaDeAplicacion.InterfacesCU.Usuario
+namespace LogicaDeAplicacion.InterfacesCU.Pago
 {
-    public interface IAltaDePago
+    public interface IAgregarPago
     {
-        public void AltaDePago(Pago pago);
+        public void AltaPago(PagoDTO nuevoPago);
     }
 }
