@@ -3,9 +3,11 @@ using LogicaDeAplicacion.DTOs;
 using LogicaDeAplicacion.InterfacesCU.TipoDeGasto;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebApp.Filters;
 
 namespace WebApp.Controllers
 {
+    [LogueadoFilter]
     public class TipoDeGastoController : Controller
     {
 

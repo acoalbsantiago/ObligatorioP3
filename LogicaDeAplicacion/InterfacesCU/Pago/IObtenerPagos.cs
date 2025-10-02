@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace LogicaDeAplicacion.InterfacesCU.Pago
 {
-    public interface IAgregarPago
+    public interface IObtenerPagos
     {
-        public void AltaPago(PagoDTO nuevoPago, int usuarioLogueado);
+        public IEnumerable<PagoDTO> ObtenerPagos();
     }
 }

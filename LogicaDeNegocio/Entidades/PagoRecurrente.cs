@@ -8,8 +8,8 @@ namespace LogicaDeNegocio.Entidades
 {
     public class PagoRecurrente : Pago
     {
-        public DateTime FechaDesde { get; set; }
-        public DateTime FechaHasta { get; set; }
+        public DateTime? FechaDesde { get; set; }
+        public DateTime? FechaHasta { get; set; }
 
         public PagoRecurrente(): base () { }
     }

@@ -33,7 +33,7 @@ public class Program
         //Repositorios DI
         builder.Services.AddScoped<ITipoDeGastoRepository, TipoDeGastoRepository>();
         builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
-
+        builder.Services.AddScoped<IPagoRepository, PagoRepository>();
 
         //casosDeUso DI 
         //tipoDeGasto
@@ -46,6 +46,7 @@ public class Program
         builder.Services.AddScoped<ILogin, LoginCU>();
         //pago
         builder.Services.AddScoped<IAgregarPago, AgregarPagoCU>();
+        builder.Services.AddScoped<IObtenerPagos, ObtenerPagosCU>();
 
         var app = builder.Build();
 

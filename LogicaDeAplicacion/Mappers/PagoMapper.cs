@@ -22,45 +22,56 @@ namespace LogicaDeAplicacion.Mappers
                     MetodoDePago = dto.MetodoDePago,
                     Descripcion = dto.Descripcion,
                     MontoTotal = dto.MontoTotal,
+                    TipoDeGastoId = dto.TipoDeGastoId,
                     UsuarioId = usuarioId,
                     FechaPago = dto.FechaPago,
-                    NumFactura = dto.NumFactura,
-                    FechaDesde = null,
-                    FechaHasta = null
+                    NumFactura = dto.NumFactura
             };
               
             }
             else if (dto.TipoDePago == TipoDePago.Recurrente)
             {
-                pago.FechaDesde = dto.FechaDesde;
-                pago.FechaHasta = dto.FechaHasta;
-                pago.FechaPago = null;
-                pago.NumFactura = null;
+                return new PagoRecurrente
+                {
+                    Id = dto.Id,
+                    MetodoDePago = dto.MetodoDePago,
+                    Descripcion = dto.Descripcion,
+                    TipoDeGastoId = dto.TipoDeGastoId,
+                    MontoTotal = dto.MontoTotal,
+                    UsuarioId = usuarioId,
+                    FechaDesde = dto.FechaDesde,
+                    FechaHasta = dto.FechaHasta
+                };
+            }
+            else
+            {
+                throw new ArgumentException("Tipo de pago no soportado");
             }
 
         }
 
         public static PagoDTO ToDTO(Pago entity)
         {
-            var dto = new PagoDTO
+            PagoDTO dto = new PagoDTO
             {
                 Id = entity.Id,
                 MetodoDePago = entity.MetodoDePago,
-                TipoDePago = entity.TipoDePago,
                 Descripcion = entity.Descripcion,
                 MontoTotal = entity.MontoTotal,
-                UsuarioId = entity.UsuarioId
+                UsuarioId = entity.UsuarioId,
+                TipoDeGastoId = entity.TipoDeGastoId,
             };
 
-            if (entity.TipoDePago == TipoDePago.Unico)
+            if (entity is PagoUnico pu)
             {
-                dto.FechaPago = entity.FechaPago;
-                dto.NumFactura = entity.NumFactura;
+                
+                dto.FechaPago = pu.FechaPago;
+                dto.NumFactura = pu.NumFactura;
             }
-            else if (entity.TipoDePago == TipoDePago.Recurrente)
+            else if (entity is PagoRecurrente pr)
             {
-                dto.FechaDesde = entity.FechaDesde;
-                dto.FechaHasta = entity.FechaHasta;
+                dto.FechaDesde = pr.FechaDesde;
+                dto.FechaHasta = pr.FechaHasta;
             }
 
             return dto;

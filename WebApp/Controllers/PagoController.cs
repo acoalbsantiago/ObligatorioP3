@@ -1,14 +1,31 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using LogicaDeAplicacion.DTOs;
+using LogicaDeAplicacion.InterfacesCU.Pago;
+using LogicaDeAplicacion.InterfacesCU.TipoDeGasto;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebApp.Filters;
 
 namespace WebApp.Controllers
 {
+    //[LogueadoFilter]
     public class PagoController : Controller
     {
-        // GET: PagoController
+        private IAgregarPago _agregarPago;
+        private IObtenerPagos _obtenerPagos;
+
+        public PagoController(
+               IAgregarPago agregarPago, 
+               IObtenerPagos obtenerPagos                              
+               )
+        {
+            _agregarPago = agregarPago;
+            _obtenerPagos = obtenerPagos;
+        }
+
         public ActionResult Index()
         {
-            return View();
+            //return View();
+            return View(_obtenerPagos.ObtenerPagos());
         }
 
         // GET: PagoController/Details/5
@@ -26,10 +43,12 @@ namespace WebApp.Controllers
         // POST: PagoController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(PagoDTO pagoDTO)
         {
             try
             {
+                int usuarioId = HttpContext.Session.GetInt32("usuarioId").Value;
+                _agregarPago.AltaPago(pagoDTO, usuarioId);
                 return RedirectToAction(nameof(Index));
             }
             catch

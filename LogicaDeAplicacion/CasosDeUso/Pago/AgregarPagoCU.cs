@@ -1,5 +1,7 @@
 ﻿using LogicaDeAplicacion.DTOs;
 using LogicaDeAplicacion.InterfacesCU.Pago;
+using LogicaDeAplicacion.Mappers;
+using LogicaDeNegocio.Entidades;
 using LogicaDeNegocio.InterfacesRepositorio;
 using System;
 using System.Collections.Generic;
@@ -16,9 +18,9 @@ namespace LogicaDeAplicacion.CasosDeUso.Pago
         {
             _repo = repo;
         }
-        public void AltaPago(PagoDTO nuevoPago)
+        public void AltaPago(PagoDTO nuevoPago, int idUsuario)
         {
-            throw new NotImplementedException();
+            _repo.Add(PagoMapper.FromDTO(nuevoPago, idUsuario));
         }
     }
 }
