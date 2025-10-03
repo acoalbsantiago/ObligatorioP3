@@ -35,7 +35,7 @@ namespace WebApp.Controllers
         }
 
         // GET: PagoController/Create
-        public ActionResult Create()
+        public IActionResult Create()
         {
             return View();
         }

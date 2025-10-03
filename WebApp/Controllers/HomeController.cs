@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using LogicaDeAplicacion.DTOs;
+using LogicaDeAplicacion.InterfacesCU.Pago;
 using LogicaDeAplicacion.InterfacesCU.Usuario;
 using LogicaDeNegocio.Exceptions;
 using Microsoft.AspNetCore.Mvc;
@@ -50,6 +51,27 @@ public class HomeController : Controller
             return View();
         }
       
+    }
+
+    public IActionResult Create()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult Create(PagoDTO pagoDTO)
+    {
+        try
+        {
+            //int usuarioId = HttpContext.Session.GetInt32("usuarioId").Value;
+            //_agregarPago.AltaPago(pagoDTO, usuarioId);
+            return RedirectToAction(nameof(Index));
+        }
+        catch
+        {
+            return View();
+        }
     }
 
 }

@@ -1,4 +1,5 @@
-﻿using LogicaDeNegocio.ValueObjets;
+﻿using LogicaDeNegocio.Enums;
+using LogicaDeNegocio.ValueObjets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,6 @@ namespace LogicaDeAplicacion.DTOs
         public string Apellido { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
+        public RolUsuario Rol { get; set; }
     }
 }

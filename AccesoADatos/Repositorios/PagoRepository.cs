@@ -30,7 +30,7 @@ namespace AccesoADatos.Repositorios
 
         public IEnumerable<Pago> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.pagos;
         }
 
         public void Remove(int id)
