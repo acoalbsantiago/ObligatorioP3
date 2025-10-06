@@ -1,6 +1,7 @@
 ﻿using LogicaDeNegocio.Enums;
 using LogicaDeNegocio.Interfaces;
 using LogicaDeNegocio.ValueObjets;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace LogicaDeNegocio.Entidades
 {
+    [Index(nameof(Email), IsUnique = true)]
     public class Usuario : IValidable
     {
         public int Id { get; set; }
@@ -23,10 +25,15 @@ namespace LogicaDeNegocio.Entidades
         [ForeignKey("Equipo")]
         public int EquipoId { get; set; }
 
-        public Usuario () { }
+        public Usuario () 
+        {
+           Email = new Email(Nombre, Apellido);
+           Validar();
+        }
 
         public void Validar()
         {
+            //validar datos
             throw new NotImplementedException();
         }
     }
