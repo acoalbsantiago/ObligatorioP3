@@ -12,12 +12,30 @@ namespace LogicaDeNegocio.ValueObjets
     {
         public string Correo { get; private set; }
 
-        public Email(string nombre, string apellido)
+        public Email () { }
+        private Email(string correo)
         {
-            Correo = nombre+apellido;
+            Correo = correo.ToLower();
         }
     
         
+        public static Email Crear(string nombre, string apellido)
+        {
+            string prefNombre = nombre.Length >= 3 ? nombre[..3] : nombre;
+            string prefApellido = apellido.Length >= 3 ? apellido[..3] : apellido;
+            string correo = $"{prefNombre}{prefApellido}@laempresa.com";
+            return new Email(correo);
+        }
+        public static Email CrearSecundario(string nombre, string apellido)
+        {
+            Random random = new Random();
+            int numRandom = random.Next(100, 999);
+            string prefNombre = nombre.Length >= 3 ? nombre[..3] : nombre;
+            string prefApellido = apellido.Length >= 3 ? apellido[..3] : apellido;
+            string correo = $"{prefNombre}{prefApellido}{numRandom}@laempresa.com";
+            return new Email(correo);
+        }
+
     }
 
 }

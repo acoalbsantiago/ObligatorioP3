@@ -44,6 +44,7 @@ public class Program
         builder.Services.AddScoped<IEditarTipoDeGasto, EditarTipoDeGastoCU>();
         //usuario
         builder.Services.AddScoped<ILogin, LoginCU>();
+        builder.Services.AddScoped<IAltaUsuario, AltaUsuarioCU>();
         //pago
         builder.Services.AddScoped<IAgregarPago, AgregarPagoCU>();
         builder.Services.AddScoped<IObtenerPagos, ObtenerPagosCU>();

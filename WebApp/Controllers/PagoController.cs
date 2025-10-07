@@ -18,8 +18,8 @@ namespace WebApp.Controllers
                IObtenerPagos obtenerPagos                              
                )
         {
-            _agregarPago = agregarPago;
-            _obtenerPagos = obtenerPagos;
+                _agregarPago = agregarPago;
+                _obtenerPagos = obtenerPagos;
         }
 
         public ActionResult Index()

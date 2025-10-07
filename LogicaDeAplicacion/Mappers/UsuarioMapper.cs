@@ -1,5 +1,6 @@
 ﻿using LogicaDeAplicacion.DTOs;
 using LogicaDeNegocio.Entidades;
+using LogicaDeNegocio.Enums;
 using LogicaDeNegocio.ValueObjets;
 using System;
 using System.Collections.Generic;
@@ -14,14 +15,8 @@ namespace LogicaDeAplicacion.Mappers
     {
         public static Usuario FromDTO(UsuarioDTO usuarioDTO)
         {
-            return new Usuario
-            {
-                Id = usuarioDTO.Id,
-                Nombre = usuarioDTO.Nombre,
-                Apellido = usuarioDTO.Apellido,
-                Password = usuarioDTO.Password,
-                Email = new Email(usuarioDTO.Email)
-            };
+            RolUsuario rol = Enum.Parse<RolUsuario>(usuarioDTO.Rol);
+            return new Usuario(usuarioDTO.Nombre, usuarioDTO.Apellido, usuarioDTO.Password, rol, usuarioDTO.EquipoId);
         }
 
         public static UsuarioDTO ToDTO(Usuario usuario)
@@ -32,7 +27,8 @@ namespace LogicaDeAplicacion.Mappers
                 Nombre = usuario.Nombre,
                 Apellido = usuario.Apellido,
                 Password = usuario.Password,
-                Email = usuario.Email.Correo
+                Rol = usuario.Rol.ToString(),
+                EquipoId = usuario.EquipoId
             };
         }
 

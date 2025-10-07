@@ -22,7 +22,8 @@ namespace AccesoADatos.Repositorios
 
         public void Add(Usuario value)
         {
-            throw new NotImplementedException();
+            _context.Usuario.Add(value);
+            _context.SaveChanges();
         }
 
         public Usuario FindById(int id)
@@ -74,6 +75,10 @@ namespace AccesoADatos.Repositorios
         public IEnumerable<Usuario> UsuariosPorMonto(double monto)
         {
             throw new NotImplementedException();
+        }
+        public bool ExisteMail (string email)
+        {
+            return _context.Usuario.Any(user => user.Email.Correo == email);
         }
     }
 }

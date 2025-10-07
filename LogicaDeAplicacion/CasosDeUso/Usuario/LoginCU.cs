@@ -14,9 +14,9 @@ namespace LogicaDeAplicacion.CasosDeUso.Usuario
     {
         private IUsuarioRepository _repo;
         
-        public LoginCU(IUsuarioRepository UsuarioRepository)
+        public LoginCU(IUsuarioRepository usuarioRepository)
         {
-             _repo = UsuarioRepository;
+             _repo = usuarioRepository;
         }
         public UsuarioDTO Login(string email, string password)
         {

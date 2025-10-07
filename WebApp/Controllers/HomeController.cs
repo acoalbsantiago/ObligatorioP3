@@ -13,10 +13,12 @@ namespace WebApp.Controllers;
 public class HomeController : Controller
 {
     private ILogin _login;
+    private IAltaUsuario _altaUsuario;
 
-    public HomeController(ILogin ILogin)
+    public HomeController(ILogin ILogin, IAltaUsuario altaUsuario)
     {
         _login = ILogin;
+        _altaUsuario = altaUsuario;
     }
 
     [LogueadoFilter]
@@ -60,15 +62,15 @@ public class HomeController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Create(PagoDTO pagoDTO)
+    public ActionResult Create(UsuarioDTO usuarioDTO)
     {
         try
         {
             //int usuarioId = HttpContext.Session.GetInt32("usuarioId").Value;
-            //_agregarPago.AltaPago(pagoDTO, usuarioId);
+            _altaUsuario.AgregarUsuario(usuarioDTO);
             return RedirectToAction(nameof(Index));
         }
-        catch
+        catch (Exception ex)
         {
             return View();
         }
