@@ -22,14 +22,15 @@ namespace AccesoADatos.Repositorios
         public void Add(TipoDeGasto value)
         {
             //validar antes
-            _context.tipos.Add(value);
+            //value.Validar();
+            _context.tiposDeGasto.Add(value);
             _context.SaveChanges();
         }
 
         public TipoDeGasto FindById(int id)
         {
             
-            foreach(TipoDeGasto tipo in _context.tipos)
+            foreach(TipoDeGasto tipo in _context.tiposDeGasto)
             {
                 if(tipo.Id == id)
                 {
@@ -41,13 +42,13 @@ namespace AccesoADatos.Repositorios
 
         public IEnumerable<TipoDeGasto> GetAll()
         {
-            return _context.tipos;
+            return _context.tiposDeGasto;
         }
 
         public void Remove(int id)
         {
             TipoDeGasto aBorrar = new TipoDeGasto { Id = id };
-            _context.tipos.Remove(aBorrar);
+            _context.tiposDeGasto.Remove(aBorrar);
             _context.SaveChanges();
         }
 

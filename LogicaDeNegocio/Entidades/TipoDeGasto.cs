@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogicaDeNegocio.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 namespace LogicaDeNegocio.Entidades
 {
     [Table("TipoDeGasto")]
-    public class TipoDeGasto
+    public class TipoDeGasto : IValidable
     {
 
         public int Id { get; set; }
@@ -21,6 +22,11 @@ namespace LogicaDeNegocio.Entidades
         {
             this.Nombre = nombre;
             this.Descripcion = descripcion;
+        }
+
+        public void Validar()
+        {
+            throw new NotImplementedException();
         }
     }
 }

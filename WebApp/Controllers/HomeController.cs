@@ -1,7 +1,9 @@
 using System.Diagnostics;
 using LogicaDeAplicacion.DTOs;
+using LogicaDeAplicacion.InterfacesCU.Equipo;
 using LogicaDeAplicacion.InterfacesCU.Pago;
 using LogicaDeAplicacion.InterfacesCU.Usuario;
+using LogicaDeNegocio.Entidades;
 using LogicaDeNegocio.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using WebApp.Filters;
@@ -14,11 +16,13 @@ public class HomeController : Controller
 {
     private ILogin _login;
     private IAltaUsuario _altaUsuario;
+    private IObtenerEquipos _obtenerEquipos;
 
-    public HomeController(ILogin ILogin, IAltaUsuario altaUsuario)
+    public HomeController(ILogin ILogin, IAltaUsuario altaUsuario, IObtenerEquipos obtenerEquipos)
     {
         _login = ILogin;
         _altaUsuario = altaUsuario;
+        _obtenerEquipos = obtenerEquipos;
     }
 
     [LogueadoFilter]
@@ -57,6 +61,9 @@ public class HomeController : Controller
 
     public IActionResult Create()
     {
+        var equipos = _obtenerEquipos.ObtenerEquipos();
+
+        ViewBag.Equipos = equipos;
         return View();
     }
 

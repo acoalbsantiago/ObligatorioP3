@@ -1,8 +1,10 @@
 using AccesoADatos.EF;
 using AccesoADatos.Repositorios;
+using LogicaDeAplicacion.CasosDeUso.Equipo;
 using LogicaDeAplicacion.CasosDeUso.Pago;
 using LogicaDeAplicacion.CasosDeUso.TipoDeGasto;
 using LogicaDeAplicacion.CasosDeUso.Usuario;
+using LogicaDeAplicacion.InterfacesCU.Equipo;
 using LogicaDeAplicacion.InterfacesCU.Pago;
 using LogicaDeAplicacion.InterfacesCU.TipoDeGasto;
 using LogicaDeAplicacion.InterfacesCU.Usuario;
@@ -30,24 +32,30 @@ public class Program
         Console.WriteLine($"Connection string: {builder.Configuration.GetConnectionString("MiDB")}");
 
 
-        //Repositorios DI
+                                //Repositorios DI
         builder.Services.AddScoped<ITipoDeGastoRepository, TipoDeGastoRepository>();
         builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
         builder.Services.AddScoped<IPagoRepository, PagoRepository>();
+        builder.Services.AddScoped<IEquipoRepository, EquipoRepository>();
 
-        //casosDeUso DI 
+                                //casosDeUso DI 
         //tipoDeGasto
         builder.Services.AddScoped<IObtenerTipoDeGasto, ObtenerTipoDeGastoCU>();
         builder.Services.AddScoped<IAgregarTipoDeGasto, AgregarTipoDeGastoCU>();
         builder.Services.AddScoped<IEliminarTipoDeGasto, EliminarTipoDeGastoCU>();
         builder.Services.AddScoped<IObtenerTipoDeGastoPorId, ObtenerTipoDeGastoPorIdCU>();
         builder.Services.AddScoped<IEditarTipoDeGasto, EditarTipoDeGastoCU>();
+        
         //usuario
         builder.Services.AddScoped<ILogin, LoginCU>();
         builder.Services.AddScoped<IAltaUsuario, AltaUsuarioCU>();
+        
         //pago
         builder.Services.AddScoped<IAgregarPago, AgregarPagoCU>();
         builder.Services.AddScoped<IObtenerPagos, ObtenerPagosCU>();
+
+        //equipos
+        builder.Services.AddScoped<IObtenerEquipos, ObtenerEquiposCU>();
 
         var app = builder.Build();
 

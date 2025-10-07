@@ -11,7 +11,7 @@ namespace AccesoADatos.EF
 {
     public class ObligatorioContext : DbContext
     {
-       public DbSet<TipoDeGasto> tipos  { get; set; }
+        public DbSet<Equipo> equipos { get; set; }
         public DbSet<Pago> pagos { get; set; }
         public DbSet<PagoRecurrente> pagoRecurrentes { get; set; }
         public DbSet<PagoUnico> PagoUnico { get; set; }

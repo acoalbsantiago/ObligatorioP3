@@ -38,7 +38,11 @@
                 <input asp-for="EquipoId" class="form-control" />
                 <span asp-validation-for="EquipoId" class="text-danger"></span>
             </div>
-
+            @* test de lista de equipos a seleccionatr *@
+            <div class="form-group">
+                <label for="EquipoId">Equipo</label>
+                <select asp-for="EquipoId" asp-items="ViewBag.Equipos" class="form-control"></select>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
