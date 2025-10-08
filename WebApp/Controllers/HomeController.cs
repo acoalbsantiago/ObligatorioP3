@@ -6,6 +6,7 @@ using LogicaDeAplicacion.InterfacesCU.Usuario;
 using LogicaDeNegocio.Entidades;
 using LogicaDeNegocio.Exceptions;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using WebApp.Filters;
 using WebApp.Models;
 
@@ -61,10 +62,19 @@ public class HomeController : Controller
 
     public IActionResult Create()
     {
-        var equipos = _obtenerEquipos.ObtenerEquipos();
+        try
+        {
+            var equipos = _obtenerEquipos.ObtenerEquipos();
 
-        ViewBag.Equipos = equipos;
-        return View();
+            ViewBag.Equipos = new SelectList(equipos, "Id", "Nombre");
+            return View();
+        }
+        catch (Exception ex)
+        {
+            return View();
+
+        }
+        
     }
 
     [HttpPost]

@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AccesoADatos.Migrations
 {
     /// <inheritdoc />
-    public partial class creandoLaBase : Migration
+    public partial class initBDD : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Equipo",
+                name: "equipos",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -21,7 +21,7 @@ namespace AccesoADatos.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Equipo", x => x.Id);
+                    table.PrimaryKey("PK_equipos", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -55,9 +55,9 @@ namespace AccesoADatos.Migrations
                 {
                     table.PrimaryKey("PK_Usuario", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Usuario_Equipo_EquipoId",
+                        name: "FK_Usuario_equipos_EquipoId",
                         column: x => x.EquipoId,
-                        principalTable: "Equipo",
+                        principalTable: "equipos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -125,7 +125,7 @@ namespace AccesoADatos.Migrations
                 name: "Usuario");
 
             migrationBuilder.DropTable(
-                name: "Equipo");
+                name: "equipos");
         }
     }
 }

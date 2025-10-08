@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AccesoADatos.Migrations
 {
     [DbContext(typeof(ObligatorioContext))]
-    [Migration("20250926141301_creandoLaBase")]
-    partial class creandoLaBase
+    [Migration("20251008170904_initBDD")]
+    partial class initBDD
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,7 +39,7 @@ namespace AccesoADatos.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Equipo");
+                    b.ToTable("equipos");
                 });
 
             modelBuilder.Entity("LogicaDeNegocio.Entidades.Pago", b =>
@@ -142,10 +142,10 @@ namespace AccesoADatos.Migrations
                 {
                     b.HasBaseType("LogicaDeNegocio.Entidades.Pago");
 
-                    b.Property<DateTime>("FechaDesde")
+                    b.Property<DateTime?>("FechaDesde")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("FechaHasta")
+                    b.Property<DateTime?>("FechaHasta")
                         .HasColumnType("datetime2");
 
                     b.HasDiscriminator().HasValue("PagoRecurrente");
@@ -155,7 +155,7 @@ namespace AccesoADatos.Migrations
                 {
                     b.HasBaseType("LogicaDeNegocio.Entidades.Pago");
 
-                    b.Property<DateTime>("FechaPago")
+                    b.Property<DateTime?>("FechaPago")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("NumFactura")
