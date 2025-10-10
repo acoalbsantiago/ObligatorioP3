@@ -1,6 +1,7 @@
 ﻿using AccesoADatos.EF;
 using LogicaDeNegocio.Entidades;
 using LogicaDeNegocio.InterfacesRepositorio;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,11 @@ namespace AccesoADatos.Repositorios
         public IEnumerable<Pago> GetAll()
         {
             return _context.pagos;
+        }
+
+        public IEnumerable<Pago> ObtenerPagosPorMesYAnio(int mes, int anio)
+        {
+            _context.pagos.Where(p => p.Fec)
         }
 
         public void Remove(int id)

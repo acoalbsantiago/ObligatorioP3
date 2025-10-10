@@ -28,7 +28,8 @@ namespace LogicaDeAplicacion.Mappers
                 Apellido = usuario.Apellido,
                 Password = usuario.Password,
                 Rol = usuario.Rol.ToString(),
-                EquipoId = usuario.EquipoId
+                EquipoId = usuario.EquipoId,
+                Email = usuario.Email
             };
         }
 

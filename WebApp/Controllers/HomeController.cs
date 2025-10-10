@@ -18,12 +18,17 @@ public class HomeController : Controller
     private ILogin _login;
     private IAltaUsuario _altaUsuario;
     private IObtenerEquipos _obtenerEquipos;
+    private IObtenerUsuariosSegunMonto _obtenerUsuarioSegunMonto;
 
-    public HomeController(ILogin ILogin, IAltaUsuario altaUsuario, IObtenerEquipos obtenerEquipos)
+    public HomeController(ILogin ILogin,
+        IAltaUsuario altaUsuario,
+        IObtenerEquipos obtenerEquipos,
+        IObtenerUsuariosSegunMonto obtenerUsuarioSegunMonto)
     {
         _login = ILogin;
         _altaUsuario = altaUsuario;
         _obtenerEquipos = obtenerEquipos;
+        _obtenerUsuarioSegunMonto = obtenerUsuarioSegunMonto;
     }
 
     [LogueadoFilter]
@@ -76,7 +81,6 @@ public class HomeController : Controller
         }
         
     }
-
     [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult Create(UsuarioDTO usuarioDTO)
@@ -91,6 +95,16 @@ public class HomeController : Controller
         {
             return View();
         }
+    }
+    public IActionResult UsuariosQueSuperanPagoDado()
+    {
+        return View();
+    }
+    [HttpPost]
+    public IActionResult UsuariosQueSuperanPagoDado(decimal monto)
+    {
+        var usuarios = _obtenerUsuarioSegunMonto.ObtenerUsuariosSegunMonto(monto);
+        return View(usuarios);
     }
 
 }

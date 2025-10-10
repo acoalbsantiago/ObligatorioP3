@@ -18,7 +18,7 @@ namespace LogicaDeAplicacion.DTOs
         public int TipoDeGastoId { get; set; }
         public UsuarioDTO? Usuario { get; set; }
         public int UsuarioId { get; set; }
-        public double MontoTotal { get; set; }
+        public decimal MontoTotal { get; set; }
 
         public TipoDePago TipoDePago { get; set; }
 

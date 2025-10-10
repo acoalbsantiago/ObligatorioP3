@@ -1,7 +1,6 @@
 ﻿@using LogicaDeNegocio.Enums
 @model LogicaDeAplicacion.DTOs.PagoDTO
 
-
 @{
     ViewData["Title"] = "Create";
 }
@@ -38,7 +37,7 @@
 
             <div class="form-group">
                 <label asp-for="MontoTotal"></label>
-                <input asp-for="MontoTotal" class="form-control" />
+                <input asp-for="MontoTotal" type="number" class="form-control" />
                 <span asp-validation-for="MontoTotal" class="text-danger"></span>
             </div>
 
@@ -47,7 +46,7 @@
                 <input asp-for="TipoDeGastoId" class="form-control" />
                 <span asp-validation-for="TipoDeGastoId" class="text-danger"></span>
             </div>
-
+            
             <!-- Campos para Pago Único -->
             <div id="campos-unico" style="display:none;">
                 <div class="form-group">

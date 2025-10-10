@@ -9,7 +9,7 @@ namespace LogicaDeNegocio.InterfacesRepositorio
 {
     public interface IUsuarioRepository : IRepository<Usuario>
     {
-        public IEnumerable<Usuario> UsuariosPorMonto (double monto);
+        public IEnumerable<Usuario> UsuariosSegunMontoDado (decimal monto);
         public Usuario Login(string pass, string email);
         bool ExisteMail(string correo);
     }

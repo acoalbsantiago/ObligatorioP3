@@ -99,10 +99,8 @@ namespace WebApp.Controllers
             }
         }
 
-        
-        public IActionResult UsuariosQueSuperanPagoDado()
-        {
-            return View();
-        }
     }
 }
+
+
+

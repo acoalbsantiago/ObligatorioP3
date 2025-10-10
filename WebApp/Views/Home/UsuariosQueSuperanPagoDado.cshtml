@@ -1,0 +1,46 @@
+﻿@model IEnumerable<LogicaDeAplicacion.DTOs.UsuarioDTO>
+
+@{
+    ViewData["Title"] = "Usuarios con pagos superiores";
+}
+
+<h2>Buscar usuarios con pagos mayores a un monto</h2>
+
+<form asp-action="UsuariosQueSuperanPagoDado" method="post">
+    <div class="form-group">
+        <label for="monto">Monto mínimo:</label>
+        <input type="number" step="0.01" class="form-control" name="monto" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Buscar</button>
+</form>
+
+<hr />
+
+@if (Model != null && Model.Any())
+{
+    <h3>Usuarios encontrados:</h3>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var usuario in Model)
+            {
+                <tr>
+                    <td>@usuario.Id</td>
+                    <td>@usuario.Nombre</td>
+                    <td>@usuario.Email.Correo</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model != null)
+{
+    <p class="text-muted">No se encontraron usuarios con pagos que superen ese monto.</p>
+}

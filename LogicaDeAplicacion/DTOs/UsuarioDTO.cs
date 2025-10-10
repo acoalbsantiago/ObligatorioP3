@@ -16,5 +16,6 @@ namespace LogicaDeAplicacion.DTOs
         public string Password { get; set; }
         public string Rol { get; set; }
         public int EquipoId { get; set; }
+        public Email Email { get; set; }
     }
 }

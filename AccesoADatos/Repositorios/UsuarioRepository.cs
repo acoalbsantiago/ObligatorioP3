@@ -8,6 +8,7 @@ using AccesoADatos.EF;
 using LogicaDeNegocio.Entidades;
 using LogicaDeNegocio.Exceptions;
 using LogicaDeNegocio.InterfacesRepositorio;
+using Microsoft.EntityFrameworkCore;
 
 namespace AccesoADatos.Repositorios
 {
@@ -72,10 +73,14 @@ namespace AccesoADatos.Repositorios
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Usuario> UsuariosPorMonto(double monto)
+        public IEnumerable<Usuario> UsuariosSegunMontoDado(decimal monto)
         {
-            throw new NotImplementedException();
-        }
+            return _context.Usuario
+                                    .Include(u => u.Pagos.Where(p => p.MontoTotal > monto)) 
+                                    .Where(u => u.Pagos.Any(p => p.MontoTotal > monto))       
+                                    .ToList();
+        }          
+        
         public bool ExisteMail (string email)
         {
             return _context.Usuario.Any(user => user.Email.Correo == email);

@@ -49,6 +49,7 @@ public class Program
         //usuario
         builder.Services.AddScoped<ILogin, LoginCU>();
         builder.Services.AddScoped<IAltaUsuario, AltaUsuarioCU>();
+        builder.Services.AddScoped<IObtenerUsuariosSegunMonto, ObtenerUsuariosSegunMontoCU>();
         
         //pago
         builder.Services.AddScoped<IAgregarPago, AgregarPagoCU>();
@@ -77,7 +78,7 @@ public class Program
 
         app.MapControllerRoute(
             name: "default",
-            pattern: "{controller=Pago}/{action=Create}/{id?}");
+            pattern: "{controller=Home}/{action=UsuariosQueSuperanPagoDado}/{id?}");
 
         app.Run();
     }

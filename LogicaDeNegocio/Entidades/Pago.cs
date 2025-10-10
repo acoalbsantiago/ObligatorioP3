@@ -19,7 +19,7 @@ namespace LogicaDeNegocio.Entidades
         public Usuario Usuario { get; set; }
         [ForeignKey("Usuario")]
         public int UsuarioId { get; set; }
-        public double MontoTotal { get; set; }
+        public decimal MontoTotal { get; set; }
         
         public Pago() { }
     }
