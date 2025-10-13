@@ -137,9 +137,11 @@ namespace WebApp.Controllers
                 return RedirectToAction(nameof(Index));
 
             }
-            catch
+            catch (Exception ex)
             {
+                ViewBag.Error = ex.Message;
                 return View();
+
             }
         }
     }

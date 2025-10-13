@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AccesoADatos.Migrations
 {
     /// <inheritdoc />
-    public partial class initBDD : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -72,10 +72,11 @@ namespace AccesoADatos.Migrations
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TipoDeGastoId = table.Column<int>(type: "int", nullable: false),
                     UsuarioId = table.Column<int>(type: "int", nullable: false),
-                    MontoTotal = table.Column<double>(type: "float", nullable: false),
+                    MontoTotal = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Discriminator = table.Column<string>(type: "nvarchar(21)", maxLength: 21, nullable: false),
                     FechaDesde = table.Column<DateTime>(type: "datetime2", nullable: true),
                     FechaHasta = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    MontoMensual = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     FechaPago = table.Column<DateTime>(type: "datetime2", nullable: true),
                     NumFactura = table.Column<int>(type: "int", nullable: true)
                 },

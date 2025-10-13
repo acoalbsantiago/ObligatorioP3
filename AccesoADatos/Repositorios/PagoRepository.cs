@@ -3,6 +3,7 @@ using LogicaDeNegocio.Entidades;
 using LogicaDeNegocio.InterfacesRepositorio;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,9 +35,26 @@ namespace AccesoADatos.Repositorios
             return _context.pagos;
         }
 
-        public IEnumerable<Pago> ObtenerPagosPorMesYAnio(int mes, int anio)
+        public IEnumerable<Pago> ObtenerPagosPorAnioYmes(int mes, int anio)
         {
-            _context.pagos.Where(p => p.Fec)
+            DateTime inicioMes = new DateTime(anio, mes, 1);
+            DateTime finMes = inicioMes.AddMonths(1);
+
+            IEnumerable<Pago> unicos = _context.pagos
+                .OfType<PagoUnico>()
+                .Include(p => p.Usuario)
+                .Include(p => p.TipoDeGasto)
+                .Where(p => p.FechaPago >= inicioMes && p.FechaPago < finMes)
+                .ToList<Pago>();
+
+            IEnumerable<Pago> recurrentes = _context.pagos
+                .OfType<PagoRecurrente>()
+                .Include(p => p.Usuario)
+                .Include(p => p.TipoDeGasto)
+                .Where(p => p.FechaDesde <= finMes && p.FechaHasta >= inicioMes)
+                .ToList<Pago>();
+
+            return unicos.Union(recurrentes);
         }
 
         public void Remove(int id)

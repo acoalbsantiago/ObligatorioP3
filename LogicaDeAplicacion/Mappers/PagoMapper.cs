@@ -31,16 +31,19 @@ namespace LogicaDeAplicacion.Mappers
             }
             else if (dto.TipoDePago == TipoDePago.Recurrente)
             {
-                return new PagoRecurrente
+                if (dto.MontoTotal == null || dto.FechaDesde == null || dto.FechaHasta == null)
+                    throw new ArgumentException("Los campos MontoMensual, FechaDesde y FechaHasta son obligatorios para pagos recurrentes.");
+
+                return new PagoRecurrente(
+                    dto.MontoTotal,
+                    dto.FechaDesde,
+                    dto.FechaHasta)
                 {
                     Id = dto.Id,
                     MetodoDePago = dto.MetodoDePago,
                     Descripcion = dto.Descripcion,
                     TipoDeGastoId = dto.TipoDeGastoId,
-                    MontoTotal = dto.MontoTotal,
-                    UsuarioId = usuarioId,
-                    FechaDesde = dto.FechaDesde,
-                    FechaHasta = dto.FechaHasta
+                    UsuarioId = usuarioId
                 };
             }
             else
@@ -64,16 +67,29 @@ namespace LogicaDeAplicacion.Mappers
 
             if (entity is PagoUnico pu)
             {
-                
+                dto.TipoDePago = TipoDePago.Unico;
                 dto.FechaPago = pu.FechaPago;
                 dto.NumFactura = pu.NumFactura;
+                dto.FechaDesde = null;
+                dto.FechaHasta = null;
             }
             else if (entity is PagoRecurrente pr)
             {
+                dto.TipoDePago = TipoDePago.Recurrente;
                 dto.FechaDesde = pr.FechaDesde;
                 dto.FechaHasta = pr.FechaHasta;
+                dto.FechaPago = null;
+                dto.NumFactura = null;
             }
 
+            return dto;
+        }
+
+        public static PagoDTO ToDTO(Pago entity, int mes, int año)
+        {
+            var dto = ToDTO(entity); // reaprovechamos el anterior
+
+            dto.SaldoPendiente = entity.CalcularSaldoPendiente(mes, año);
             return dto;
         }
     }

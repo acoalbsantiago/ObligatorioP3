@@ -18,7 +18,7 @@ namespace LogicaDeAplicacion.DTOs
         public int TipoDeGastoId { get; set; }
         public UsuarioDTO? Usuario { get; set; }
         public int UsuarioId { get; set; }
-        public decimal MontoTotal { get; set; }
+        public decimal? MontoTotal { get; set; }
 
         public TipoDePago TipoDePago { get; set; }
 
@@ -28,7 +28,9 @@ namespace LogicaDeAplicacion.DTOs
 
         //si es pago unico
         public DateTime? FechaPago { get; set; }
-        public int NumFactura { get; set; }
+        public int? NumFactura { get; set; }
+        public decimal? SaldoPendiente { get; set; }
+
 
         public PagoDTO() { }
     }

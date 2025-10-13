@@ -9,8 +9,13 @@ namespace LogicaDeNegocio.Entidades
     public class PagoUnico : Pago
     {
         public DateTime? FechaPago { get; set; }
-        public int NumFactura { get; set; }
+        public int? NumFactura { get; set; }
 
         public PagoUnico(): base() { }
+
+        public override decimal? CalcularSaldoPendiente(int mes, int año)
+        {
+            return 0;
+        }
     }
 }

@@ -47,6 +47,12 @@ namespace AccesoADatos.Repositorios
 
         public void Remove(int id)
         {
+            bool existenPagos = _context.pagos.Any(p => p.TipoDeGastoId == id);
+
+            if (existenPagos)
+            {
+                throw new InvalidOperationException("No se puede eliminar el tipo de gasto porque tiene pagos asociados.");
+            }
             TipoDeGasto aBorrar = new TipoDeGasto { Id = id };
             _context.tiposDeGasto.Remove(aBorrar);
             _context.SaveChanges();

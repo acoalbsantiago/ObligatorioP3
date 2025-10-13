@@ -18,7 +18,16 @@ namespace LogicaDeAplicacion.CasosDeUso.TipoDeGasto
 
         public void EliminarTipoDeGasto(int id)
         {
-            _repo.Remove(id);
+            try
+            {
+                _repo.Remove(id);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+           
         }
     }
 }

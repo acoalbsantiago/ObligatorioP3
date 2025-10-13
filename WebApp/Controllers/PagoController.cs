@@ -12,14 +12,17 @@ namespace WebApp.Controllers
     {
         private IAgregarPago _agregarPago;
         private IObtenerPagos _obtenerPagos;
+        private IObtenerPagosDadoAnioYmes _listarPagosMensuales;
 
         public PagoController(
                IAgregarPago agregarPago, 
-               IObtenerPagos obtenerPagos                              
+               IObtenerPagos obtenerPagos,                             
+               IObtenerPagosDadoAnioYmes listarPagosMensuales
                )
         {
                 _agregarPago = agregarPago;
                 _obtenerPagos = obtenerPagos;
+                _listarPagosMensuales = listarPagosMensuales;
         }
 
         public ActionResult Index()
@@ -97,6 +100,23 @@ namespace WebApp.Controllers
             {
                 return View();
             }
+        }
+
+
+        public IActionResult ListarPagosMensuales()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ListarPagosMensuales(int mes, int año)
+        {
+            var pagos = _listarPagosMensuales.ObtenerPagosPorMesYAño(mes, año);
+
+            if (!pagos.Any())
+                ViewBag.Mensaje = "No existen pagos registrados en ese período.";
+
+            return View(pagos);
         }
 
     }

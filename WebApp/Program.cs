@@ -28,6 +28,7 @@ public class Program
             options => options.UseSqlServer(builder.Configuration.GetConnectionString("MiDB"))
             );
 
+        //$Env:ASPNETCORE_ENVIRONMENT = "Home"
         Console.WriteLine($"Entorno actual: {builder.Environment.EnvironmentName}");
         Console.WriteLine($"Connection string: {builder.Configuration.GetConnectionString("MiDB")}");
 
@@ -54,6 +55,7 @@ public class Program
         //pago
         builder.Services.AddScoped<IAgregarPago, AgregarPagoCU>();
         builder.Services.AddScoped<IObtenerPagos, ObtenerPagosCU>();
+        builder.Services.AddScoped<IObtenerPagosDadoAnioYmes, ObtenerPagosSegunAnioYmesCU>();
 
         //equipos
         builder.Services.AddScoped<IObtenerEquipos, ObtenerEquiposCU>();

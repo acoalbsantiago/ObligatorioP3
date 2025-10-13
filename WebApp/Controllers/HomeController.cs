@@ -103,8 +103,18 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult UsuariosQueSuperanPagoDado(decimal monto)
     {
-        var usuarios = _obtenerUsuarioSegunMonto.ObtenerUsuariosSegunMonto(monto);
-        return View(usuarios);
+        try
+        {
+            var usuarios = _obtenerUsuarioSegunMonto.ObtenerUsuariosSegunMonto(monto);
+            return View(usuarios);
+        }
+        catch (Exception ex)
+        {
+
+            ViewBag.Error = "Ocurrio un error al filtrar los datos";
+            return View();
+        }
+        
     }
 
 }

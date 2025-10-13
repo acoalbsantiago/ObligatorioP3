@@ -6,6 +6,14 @@
 
 <h2>Buscar usuarios con pagos mayores a un monto</h2>
 
+@if (!string.IsNullOrWhiteSpace(ViewBag.Error))
+{
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}
+
+
 <form asp-action="UsuariosQueSuperanPagoDado" method="post">
     <div class="form-group">
         <label for="monto">Monto mínimo:</label>

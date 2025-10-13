@@ -1,0 +1,70 @@
+﻿@model IEnumerable<LogicaDeAplicacion.DTOs.PagoDTO>
+
+@{
+    ViewData["Title"] = "Listado mensual de pagos";
+}
+
+<h2 class="mb-4">Listado mensual de pagos</h2>
+
+<form asp-action="ListarPagosMensuales" method="post" class="row g-3 mb-4">
+    <div class="col-md-3">
+        <label for="mes" class="form-label">Mes</label>
+        <input type="number" class="form-control" id="mes" name="mes" min="1" max="12" required />
+    </div>
+
+    <div class="col-md-3">
+        <label for="año" class="form-label">Año</label>
+        <input type="number" class="form-control" id="año" name="año" min="2000" max="2100" required />
+    </div>
+
+    <div class="col-md-3 align-self-end">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </div>
+</form>
+
+<hr />
+
+@if (ViewBag.Mensaje != null)
+{
+    <div class="alert alert-warning mt-3">
+        @ViewBag.Mensaje
+    </div>
+}
+else if (Model != null && Model.Any())
+{
+    <table class="table table-striped table-hover mt-4">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Descripción</th>
+                <th>Tipo de Pago</th>
+                <th>Método</th>
+                <th>Tipo de Gasto</th>
+                <th>Usuario</th>
+                <th>Monto Total</th>
+                <th>Saldo Pendiente</th>
+                <th>Desde</th>
+                <th>Hasta</th>
+                <th>Fecha Pago</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pago in Model)
+            {
+                <tr>
+                    <td>@pago.Id</td>
+                    <td>@pago.Descripcion</td>
+                    <td>@pago.TipoDePago.ToString()</td>
+                    <td>@pago.MetodoDePago</td>
+                    <td>@pago.TipoDeGasto?.Nombre</td>
+                    <td>@pago.UsuarioId</td>
+                    <td>@pago.MontoTotal?.ToString("C")</td>
+                    <td>@(pago.SaldoPendiente?.ToString("C") ?? "-")</td>
+                    <td>@(pago.FechaDesde?.ToString("dd/MM/yyyy") ?? "-")</td>
+                    <td>@(pago.FechaHasta?.ToString("dd/MM/yyyy") ?? "-")</td>
+                    <td>@(pago.FechaPago?.ToString("dd/MM/yyyy") ?? "-")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

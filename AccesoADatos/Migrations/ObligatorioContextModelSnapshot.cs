@@ -139,11 +139,14 @@ namespace AccesoADatos.Migrations
                 {
                     b.HasBaseType("LogicaDeNegocio.Entidades.Pago");
 
-                    b.Property<DateTime?>("FechaDesde")
+                    b.Property<DateTime>("FechaDesde")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("FechaHasta")
+                    b.Property<DateTime>("FechaHasta")
                         .HasColumnType("datetime2");
+
+                    b.Property<decimal>("MontoMensual")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasDiscriminator().HasValue("PagoRecurrente");
                 });
@@ -152,7 +155,7 @@ namespace AccesoADatos.Migrations
                 {
                     b.HasBaseType("LogicaDeNegocio.Entidades.Pago");
 
-                    b.Property<DateTime?>("FechaPago")
+                    b.Property<DateTime>("FechaPago")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("NumFactura")
