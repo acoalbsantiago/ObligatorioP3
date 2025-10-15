@@ -22,6 +22,32 @@ namespace AccesoADatos.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("LogicaDeNegocio.Entidades.AuditoriaTipoDeGasto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Accion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("TipoDeGastoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AuditoriaTipoDeGasto");
+                });
+
             modelBuilder.Entity("LogicaDeNegocio.Entidades.Equipo", b =>
                 {
                     b.Property<int>("Id")
@@ -59,7 +85,7 @@ namespace AccesoADatos.Migrations
                     b.Property<int>("MetodoDePago")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("MontoTotal")
+                    b.Property<decimal?>("MontoTotal")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("TipoDeGastoId")
@@ -139,13 +165,13 @@ namespace AccesoADatos.Migrations
                 {
                     b.HasBaseType("LogicaDeNegocio.Entidades.Pago");
 
-                    b.Property<DateTime>("FechaDesde")
+                    b.Property<DateTime?>("FechaDesde")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("FechaHasta")
+                    b.Property<DateTime?>("FechaHasta")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal>("MontoMensual")
+                    b.Property<decimal?>("MontoMensual")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasDiscriminator().HasValue("PagoRecurrente");
@@ -155,10 +181,10 @@ namespace AccesoADatos.Migrations
                 {
                     b.HasBaseType("LogicaDeNegocio.Entidades.Pago");
 
-                    b.Property<DateTime>("FechaPago")
+                    b.Property<DateTime?>("FechaPago")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("NumFactura")
+                    b.Property<int?>("NumFactura")
                         .HasColumnType("int");
 
                     b.HasDiscriminator().HasValue("PagoUnico");

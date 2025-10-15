@@ -127,13 +127,14 @@ namespace WebApp.Controllers
         }
 
         // POST: TipoDeGastoController/Delete/5
-        [HttpPost]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult DeleteConfirmed(int id)
         {
             try
             {
-                _eliminarTipoDeGasto.EliminarTipoDeGasto(id);
+                int usuarioId = (int)HttpContext.Items["UsuarioId"];
+                _eliminarTipoDeGasto.EliminarTipoDeGasto(id, usuarioId);
                 return RedirectToAction(nameof(Index));
 
             }

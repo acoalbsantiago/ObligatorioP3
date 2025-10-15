@@ -1,9 +1,11 @@
 using AccesoADatos.EF;
 using AccesoADatos.Repositorios;
+using LogicaDeAplicacion.CasosDeUso.Auditoria;
 using LogicaDeAplicacion.CasosDeUso.Equipo;
 using LogicaDeAplicacion.CasosDeUso.Pago;
 using LogicaDeAplicacion.CasosDeUso.TipoDeGasto;
 using LogicaDeAplicacion.CasosDeUso.Usuario;
+using LogicaDeAplicacion.InterfacesCU.Auditoria;
 using LogicaDeAplicacion.InterfacesCU.Equipo;
 using LogicaDeAplicacion.InterfacesCU.Pago;
 using LogicaDeAplicacion.InterfacesCU.TipoDeGasto;
@@ -38,6 +40,7 @@ public class Program
         builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
         builder.Services.AddScoped<IPagoRepository, PagoRepository>();
         builder.Services.AddScoped<IEquipoRepository, EquipoRepository>();
+        builder.Services.AddScoped<IAuditoriaRepositorio, AuditoriaRepositorio>();
 
                                 //casosDeUso DI 
         //tipoDeGasto
@@ -59,6 +62,9 @@ public class Program
 
         //equipos
         builder.Services.AddScoped<IObtenerEquipos, ObtenerEquiposCU>();
+
+        //auditoria
+        builder.Services.AddScoped<IRegistrarCambioAuditoria, RegistrarCambioAuditoriaCU>();
 
         var app = builder.Build();
 

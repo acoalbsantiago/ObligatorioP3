@@ -17,6 +17,7 @@ namespace AccesoADatos.EF
         public DbSet<PagoUnico> PagoUnico { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<TipoDeGasto> tiposDeGasto { get; set; }
+        public DbSet<AuditoriaTipoDeGasto> AuditoriaTipoDeGasto { get; set; }
 
         public ObligatorioContext(DbContextOptions options) : base(options) { }
 

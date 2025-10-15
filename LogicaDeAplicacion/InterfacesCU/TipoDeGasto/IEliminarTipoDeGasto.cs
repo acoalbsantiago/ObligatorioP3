@@ -8,6 +8,6 @@ namespace LogicaDeAplicacion.InterfacesCU.TipoDeGasto
 {
     public interface IEliminarTipoDeGasto
     {
-        public void EliminarTipoDeGasto(int id); 
+        public void EliminarTipoDeGasto(int id, int usuarioId); 
     }
 }

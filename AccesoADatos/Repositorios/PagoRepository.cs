@@ -45,14 +45,14 @@ namespace AccesoADatos.Repositorios
                 .Include(p => p.Usuario)
                 .Include(p => p.TipoDeGasto)
                 .Where(p => p.FechaPago >= inicioMes && p.FechaPago < finMes)
-                .ToList<Pago>();
+                .ToList();
 
             IEnumerable<Pago> recurrentes = _context.pagos
                 .OfType<PagoRecurrente>()
                 .Include(p => p.Usuario)
                 .Include(p => p.TipoDeGasto)
                 .Where(p => p.FechaDesde <= finMes && p.FechaHasta >= inicioMes)
-                .ToList<Pago>();
+                .ToList();
 
             return unicos.Union(recurrentes);
         }

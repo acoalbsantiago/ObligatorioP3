@@ -6,11 +6,27 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AccesoADatos.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class iniciandoConAuditoria : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "AuditoriaTipoDeGasto",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TipoDeGastoId = table.Column<int>(type: "int", nullable: false),
+                    Accion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Fecha = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UsuarioId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AuditoriaTipoDeGasto", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "equipos",
                 columns: table => new
@@ -72,7 +88,7 @@ namespace AccesoADatos.Migrations
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TipoDeGastoId = table.Column<int>(type: "int", nullable: false),
                     UsuarioId = table.Column<int>(type: "int", nullable: false),
-                    MontoTotal = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    MontoTotal = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     Discriminator = table.Column<string>(type: "nvarchar(21)", maxLength: 21, nullable: false),
                     FechaDesde = table.Column<DateTime>(type: "datetime2", nullable: true),
                     FechaHasta = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -116,6 +132,9 @@ namespace AccesoADatos.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "AuditoriaTipoDeGasto");
+
             migrationBuilder.DropTable(
                 name: "pagos");
 
