@@ -67,5 +67,14 @@ namespace LogicaDeNegocio.Entidades
             if (MontoMensual <= 0)
                 throw new PagoException("El monto mensual debe ser mayor que cero.");
         }
+
+        public override bool PerteneceAlMes(int mes, int anio)
+        {
+            var inicioMes = new DateTime(anio, mes, 1);
+            var finMes = inicioMes.AddMonths(1).AddDays(-1);
+
+            // Se considera que el pago pertenece al mes si el rango se solapa
+            return FechaDesde <= finMes && FechaHasta >= inicioMes;
+        }
     }
 }

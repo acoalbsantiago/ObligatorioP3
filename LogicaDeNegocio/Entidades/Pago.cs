@@ -26,5 +26,7 @@ namespace LogicaDeNegocio.Entidades
         public abstract decimal? CalcularSaldoPendiente(int mes, int año);
 
         public abstract void Validar();
+
+        public abstract bool PerteneceAlMes(int mes, int anio);
     }
 }
