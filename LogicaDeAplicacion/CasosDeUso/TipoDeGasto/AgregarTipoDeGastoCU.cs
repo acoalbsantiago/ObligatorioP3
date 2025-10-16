@@ -1,6 +1,8 @@
 ﻿using LogicaDeAplicacion.DTOs;
+using LogicaDeAplicacion.InterfacesCU.Auditoria;
 using LogicaDeAplicacion.InterfacesCU.TipoDeGasto;
 using LogicaDeAplicacion.Mappers;
+using LogicaDeNegocio.Entidades;
 using LogicaDeNegocio.InterfacesRepositorio;
 using System;
 using System.Collections.Generic;
@@ -13,14 +15,17 @@ namespace LogicaDeAplicacion.CasosDeUso.TipoDeGasto
     public class AgregarTipoDeGastoCU : IAgregarTipoDeGasto
     {
         private ITipoDeGastoRepository _repo;
-        
-        public AgregarTipoDeGastoCU(ITipoDeGastoRepository repo)
+        private IRegistrarCambioAuditoria _auditoria;
+        public AgregarTipoDeGastoCU(ITipoDeGastoRepository repo,
+                                    IRegistrarCambioAuditoria auditoria)
         {
             _repo = repo;
+            _auditoria = auditoria;
         }
-        void IAgregarTipoDeGasto.AgregarTipoDeGasto(TipoDeGastoDTO tipoDeGasto)
+        public void AgregarTipoDeGasto(TipoDeGastoDTO tipoDeGasto,int usuarioId)
         {
             _repo.Add(TipoDeGastoMapper.FromDTO(tipoDeGasto));
+            _auditoria.RegistrarCambioAuditoria(tipoDeGasto.Id, "Agregar", usuarioId);
         }
     }
 }

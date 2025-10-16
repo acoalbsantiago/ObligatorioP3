@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución",
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{4491890F-7C86-4DD4-A968-2F0BE4EA3582}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{199BBE53-2A56-4801-9D43-E0D41D11E63F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{199BBE53-2A56-4801-9D43-E0D41D11E63F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{199BBE53-2A56-4801-9D43-E0D41D11E63F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4491890F-7C86-4DD4-A968-2F0BE4EA3582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4491890F-7C86-4DD4-A968-2F0BE4EA3582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4491890F-7C86-4DD4-A968-2F0BE4EA3582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4491890F-7C86-4DD4-A968-2F0BE4EA3582}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

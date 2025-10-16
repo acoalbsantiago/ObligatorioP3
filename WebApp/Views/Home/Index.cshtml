@@ -1,6 +1,12 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@if (!string.IsNullOrWhiteSpace(ViewBag.Error))
+{
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}
 
 <div class="text-center">
     <h1 class="display-4">Welcome @Context.Session.GetString("usuario")</h1>

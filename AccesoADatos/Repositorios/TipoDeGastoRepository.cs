@@ -29,15 +29,12 @@ namespace AccesoADatos.Repositorios
 
         public TipoDeGasto FindById(int id)
         {
-            
-            foreach(TipoDeGasto tipo in _context.tiposDeGasto)
-            {
-                if(tipo.Id == id)
-                {
-                    return tipo;
-                }
-            }
-            throw new TipoDeGastoException("Tipo de gasto no encontrado.");
+            TipoDeGasto tipo = _context.tiposDeGasto.SingleOrDefault(t => t.Id == id);
+
+            if (tipo == null)
+                throw new TipoDeGastoException("Tipo de gasto no encontrado.");
+
+            return tipo;
         }
 
         public IEnumerable<TipoDeGasto> GetAll()

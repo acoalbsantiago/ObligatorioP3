@@ -4,6 +4,12 @@
 @{
     ViewData["Title"] = "Create";
 }
+@if (!string.IsNullOrWhiteSpace(ViewBag.Error))
+{
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}
 
 <h1>Alta Pago</h1>
 <hr />

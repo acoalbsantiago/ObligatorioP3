@@ -9,6 +9,6 @@ namespace LogicaDeAplicacion.InterfacesCU.TipoDeGasto
 {
     public interface IEditarTipoDeGasto
     {
-        public void EditarTipoDeGasto(TipoDeGastoDTO tipoDTO);
+        public void EditarTipoDeGasto(TipoDeGastoDTO tipoDTO, int usuarioId);
     }
 }

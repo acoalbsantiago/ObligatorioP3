@@ -2,6 +2,7 @@
 using LogicaDeAplicacion.InterfacesCU.Pago;
 using LogicaDeAplicacion.Mappers;
 using LogicaDeNegocio.Entidades;
+using LogicaDeNegocio.Exceptions;
 using LogicaDeNegocio.InterfacesRepositorio;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,21 @@ namespace LogicaDeAplicacion.CasosDeUso.Pago
         }
         public void AltaPago(PagoDTO nuevoPago, int idUsuario)
         {
-            _repo.Add(PagoMapper.FromDTO(nuevoPago, idUsuario));
+            try
+            {
+                _repo.Add(PagoMapper.FromDTO(nuevoPago, idUsuario));
+            }
+            catch (PagoException)
+            {
+
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Ocurrió un error al intentar registrar el pago.", ex);
+            }
         }
+            
     }
 }
+

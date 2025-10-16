@@ -1,4 +1,5 @@
-﻿using LogicaDeNegocio.Interfaces;
+﻿using LogicaDeNegocio.Exceptions;
+using LogicaDeNegocio.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -26,7 +27,10 @@ namespace LogicaDeNegocio.Entidades
 
         public void Validar()
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrWhiteSpace(Nombre))
+                    throw new TipoDeGastoException("El nombre no puede estar vacío.");
+            if (string.IsNullOrWhiteSpace(Descripcion))
+                    throw new TipoDeGastoException("La descripcion no puede estar vacia.");
         }
     }
 }

@@ -9,6 +9,6 @@ namespace LogicaDeAplicacion.InterfacesCU.TipoDeGasto
 {
     public interface IAgregarTipoDeGasto
     {
-        public void AgregarTipoDeGasto (TipoDeGastoDTO tipoDeGasto);
+        public void AgregarTipoDeGasto (TipoDeGastoDTO tipoDeGasto, int usuarioId);
     }
 }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AccesoADatos.Migrations
 {
     /// <inheritdoc />
-    public partial class iniciandoConAuditoria : Migration
+    public partial class probandoAuditoria : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

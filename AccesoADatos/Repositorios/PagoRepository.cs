@@ -1,5 +1,6 @@
 ﻿using AccesoADatos.EF;
 using LogicaDeNegocio.Entidades;
+using LogicaDeNegocio.Exceptions;
 using LogicaDeNegocio.InterfacesRepositorio;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -21,13 +22,31 @@ namespace AccesoADatos.Repositorios
         }
         public void Add(Pago value)
         {
-            _context.pagos.Add(value);
-            _context.SaveChanges();
+            try
+            {
+                value.Validar();
+                _context.pagos.Add(value);
+                _context.SaveChanges();
+            }
+            catch (PagoException pe)
+            {
+                throw;
+
+            }catch (Exception ex)
+            {
+                throw new Exception("Ha ocurrido un error inesperado", ex);
+            }
+            
         }
 
         public Pago FindById(int id)
         {
-            throw new NotImplementedException();
+            Pago pago = _context.pagos.FirstOrDefault(t => t.Id == id);
+
+            if (pago == null)
+                throw new TipoDeGastoException("Tipo de gasto no encontrado.");
+
+            return pago;
         }
 
         public IEnumerable<Pago> GetAll()

@@ -29,10 +29,10 @@ public class Program
         builder.Services.AddDbContext<DbContext, ObligatorioContext>(
             options => options.UseSqlServer(builder.Configuration.GetConnectionString("MiDB"))
             );
-
         //$Env:ASPNETCORE_ENVIRONMENT = "Home"
         Console.WriteLine($"Entorno actual: {builder.Environment.EnvironmentName}");
         Console.WriteLine($"Connection string: {builder.Configuration.GetConnectionString("MiDB")}");
+
 
 
                                 //Repositorios DI
@@ -59,6 +59,7 @@ public class Program
         builder.Services.AddScoped<IAgregarPago, AgregarPagoCU>();
         builder.Services.AddScoped<IObtenerPagos, ObtenerPagosCU>();
         builder.Services.AddScoped<IObtenerPagosDadoAnioYmes, ObtenerPagosSegunAnioYmesCU>();
+        builder.Services.AddScoped<IObtenerPagoPorId, ObtenerPagoPorIdCU>();
 
         //equipos
         builder.Services.AddScoped<IObtenerEquipos, ObtenerEquiposCU>();

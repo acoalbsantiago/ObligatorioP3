@@ -7,7 +7,9 @@ using WebApp.Filters;
 
 namespace WebApp.Controllers
 {
+    
     [LogueadoFilter]
+    [AdminFilter]
     public class TipoDeGastoController : Controller
     {
 
@@ -44,14 +46,12 @@ namespace WebApp.Controllers
         {
             try
             {
-                return View(_obtenerTipoDeGastoPorId.ObtenerTipoDeGastoPorId(id));
+               return View(_obtenerTipoDeGastoPorId.ObtenerTipoDeGastoPorId(id));
             }
             catch (Exception ex)
             {
-
                 return RedirectToAction(nameof(Index));
-            }
-            
+            }            
         }
 
         // GET: TipoDeGastoController/Create
@@ -68,7 +68,8 @@ namespace WebApp.Controllers
         {
             try
             {
-                _agregarTipoDeGasto.AgregarTipoDeGasto(tipoDeGasto);
+                int usuarioId = HttpContext.Session.GetInt32("usuarioId").Value;
+                _agregarTipoDeGasto.AgregarTipoDeGasto(tipoDeGasto, usuarioId);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -99,7 +100,8 @@ namespace WebApp.Controllers
         {
             try
             {
-                _editarTipoDeGasto.EditarTipoDeGasto(tipoDTO);
+                int usuarioId = HttpContext.Session.GetInt32("usuarioId").Value;
+                _editarTipoDeGasto.EditarTipoDeGasto(tipoDTO, usuarioId);
                 return RedirectToAction(nameof(Index));
 
             }
@@ -133,7 +135,7 @@ namespace WebApp.Controllers
         {
             try
             {
-                int usuarioId = (int)HttpContext.Items["UsuarioId"];
+                int usuarioId = HttpContext.Session.GetInt32("usuarioId").Value;
                 _eliminarTipoDeGasto.EliminarTipoDeGasto(id, usuarioId);
                 return RedirectToAction(nameof(Index));
 

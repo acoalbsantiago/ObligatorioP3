@@ -1,4 +1,5 @@
 ﻿using LogicaDeNegocio.Enums;
+using LogicaDeNegocio.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LogicaDeNegocio.Entidades
 {
-    public abstract class Pago
+    public abstract class Pago : IValidable
     {
         public int Id { get; set; }
         public MetodoDePago MetodoDePago { get; set; }
@@ -23,5 +24,7 @@ namespace LogicaDeNegocio.Entidades
         
         public Pago() { }
         public abstract decimal? CalcularSaldoPendiente(int mes, int año);
+
+        public abstract void Validar();
     }
 }

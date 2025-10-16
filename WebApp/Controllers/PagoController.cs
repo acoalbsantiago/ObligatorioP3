@@ -1,6 +1,7 @@
 ﻿using LogicaDeAplicacion.DTOs;
 using LogicaDeAplicacion.InterfacesCU.Pago;
 using LogicaDeAplicacion.InterfacesCU.TipoDeGasto;
+using LogicaDeNegocio.Exceptions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApp.Filters;
@@ -27,7 +28,7 @@ namespace WebApp.Controllers
 
         public ActionResult Index()
         {
-            //return View();
+            
             return View(_obtenerPagos.ObtenerPagos());
         }
 
@@ -38,8 +39,9 @@ namespace WebApp.Controllers
         }
 
         // GET: PagoController/Create
-        public IActionResult Create()
+        public IActionResult Create(string error)
         {
+            ViewBag.Error = error;
             return View();
         }
 
@@ -54,8 +56,13 @@ namespace WebApp.Controllers
                 _agregarPago.AltaPago(pagoDTO, usuarioId);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch(PagoException pe)
             {
+                ViewBag.Error = pe.Message;
+                return View();
+            }catch(Exception ex)
+            {
+                ViewBag.Error = ex.Message;
                 return View();
             }
         }

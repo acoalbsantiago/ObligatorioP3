@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using WebApp.Filters;
 using WebApp.Models;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WebApp.Controllers;
 
@@ -32,9 +33,11 @@ public class HomeController : Controller
     }
 
     [LogueadoFilter]
-    public IActionResult Index()
+    public IActionResult Index(string error)
     {
+        ViewBag.Error = error;
         return View();
+ 
     }
     
     public IActionResult Login(string error)
@@ -50,6 +53,7 @@ public class HomeController : Controller
             UsuarioDTO logueado = this._login.Login(Email, Password);
             HttpContext.Session.SetString("usuario", logueado.Nombre);
             HttpContext.Session.SetInt32("usuarioId", logueado.Id);
+            HttpContext.Session.SetString("rol", logueado.Rol);
             return RedirectToAction("Index");
         }
         catch (UsuarioException uex)

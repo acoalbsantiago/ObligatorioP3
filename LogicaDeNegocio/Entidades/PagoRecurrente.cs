@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LogicaDeNegocio.Exceptions;
+using LogicaDeNegocio.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LogicaDeNegocio.Entidades
 {
-    public class PagoRecurrente : Pago
+    public class PagoRecurrente : Pago, IValidable
     {
         public DateTime? FechaDesde { get; set; }
         public DateTime? FechaHasta { get; set; }
@@ -47,5 +49,23 @@ namespace LogicaDeNegocio.Entidades
             return mesesRestantes > 0 ? mesesRestantes * MontoMensual : 0;
         }
 
+        public override void Validar()
+        {
+            if (string.IsNullOrWhiteSpace(Descripcion))
+                throw new PagoException("Debe ingresar una descripción.");
+
+            if (TipoDeGastoId <= 0)
+                throw new PagoException("Debe seleccionar un tipo de gasto válido.");
+
+
+            if (FechaDesde == default || FechaHasta == default)
+                throw new PagoException("Debe ingresar un rango de fechas válido.");
+
+            if (FechaDesde > FechaHasta)
+                throw new PagoException("La fecha de inicio no puede ser posterior a la fecha de fin.");
+
+            if (MontoMensual <= 0)
+                throw new PagoException("El monto mensual debe ser mayor que cero.");
+        }
     }
 }

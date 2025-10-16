@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AccesoADatos.Migrations
 {
     [DbContext(typeof(ObligatorioContext))]
-    [Migration("20251015012258_iniciandoConAuditoria")]
-    partial class iniciandoConAuditoria
+    [Migration("20251015112402_probandoAuditoria")]
+    partial class probandoAuditoria
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
