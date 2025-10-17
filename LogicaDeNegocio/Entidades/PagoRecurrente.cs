@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LogicaDeNegocio.Entidades
 {
-    public class PagoRecurrente : Pago, IValidable
+    public class PagoRecurrente : Pago
     {
         public DateTime? FechaDesde { get; set; }
         public DateTime? FechaHasta { get; set; }
@@ -35,17 +35,17 @@ namespace LogicaDeNegocio.Entidades
             return MontoMensual * CalcularCantidadDeMeses();
         }
 
-        public override decimal? CalcularSaldoPendiente(int mes, int año)
+        public override decimal? CalcularSaldoPendiente(int mes, int anio)
         {
             if (FechaDesde is null || FechaHasta is null)
                 return 0;
 
-            var periodo = new DateTime(año, mes, 1);
+            var periodo = new DateTime(anio, mes, 1);
 
             if (periodo < FechaDesde || periodo > FechaHasta)
                 return 0;
 
-            int mesesRestantes = ((FechaHasta.Value.Year - año) * 12) + (FechaHasta.Value.Month - mes);
+            int mesesRestantes = ((FechaHasta.Value.Year - anio) * 12) + (FechaHasta.Value.Month - mes);
             return mesesRestantes > 0 ? mesesRestantes * MontoMensual : 0;
         }
 

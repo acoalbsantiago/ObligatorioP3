@@ -9,7 +9,7 @@ using WebApp.Filters;
 
 namespace WebApp.Controllers;
 
-//[LogueadoFilter]
+[LogueadoFilter]
 public class UsuarioController : Controller
 {
     
@@ -37,7 +37,7 @@ public class UsuarioController : Controller
     
     
     
-    //[AdminYGerenteFilter]
+    [AdminYGerenteFilter]
     public IActionResult Create()
     {
         try
@@ -53,7 +53,7 @@ public class UsuarioController : Controller
         
     }
 
-    //[AdminYGerenteFilter]
+    [AdminYGerenteFilter]
     [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult Create(UsuarioDTO usuarioDTO)
