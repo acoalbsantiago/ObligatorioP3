@@ -32,7 +32,7 @@ public class HomeController : Controller
         _obtenerUsuarioSegunMonto = obtenerUsuarioSegunMonto;
     }
 
-    [LogueadoFilter]
+ 
     public IActionResult Index(string error)
     {
         ViewBag.Error = error;
@@ -51,7 +51,7 @@ public class HomeController : Controller
         try
         {
             UsuarioDTO logueado = this._login.Login(Email, Password);
-            HttpContext.Session.SetString("usuario", logueado.Nombre);
+            HttpContext.Session.SetString("email", logueado.Email.Correo);
             HttpContext.Session.SetInt32("usuarioId", logueado.Id);
             HttpContext.Session.SetString("rol", logueado.Rol);
             return RedirectToAction("Index");
@@ -68,7 +68,8 @@ public class HomeController : Controller
         }
       
     }
-
+    
+    [AdminYGerenteFilter]
     public IActionResult Create()
     {
         try
@@ -85,6 +86,8 @@ public class HomeController : Controller
         }
         
     }
+
+    [AdminYGerenteFilter]
     [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult Create(UsuarioDTO usuarioDTO)
@@ -100,11 +103,16 @@ public class HomeController : Controller
             return View();
         }
     }
+
+    [GerenteFilter]
     public IActionResult UsuariosQueSuperanPagoDado()
     {
         return View();
     }
+
+    [GerenteFilter]
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public IActionResult UsuariosQueSuperanPagoDado(decimal monto)
     {
         try
@@ -120,5 +128,9 @@ public class HomeController : Controller
         }
         
     }
-
-}
+    public IActionResult Logout()
+    {
+        HttpContext.Session.Clear();
+        return RedirectToAction("Index");
+    }
+}   

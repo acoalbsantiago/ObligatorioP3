@@ -32,20 +32,20 @@ namespace WebApp.Controllers
             return View(_obtenerPagos.ObtenerPagos());
         }
 
-        // GET: PagoController/Details/5
+    
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: PagoController/Create
+       
         public IActionResult Create(string error)
         {
             ViewBag.Error = error;
             return View();
         }
 
-        // POST: PagoController/Create
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(PagoDTO pagoDTO)
@@ -67,13 +67,13 @@ namespace WebApp.Controllers
             }
         }
 
-        // GET: PagoController/Edit/5
+        
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: PagoController/Edit/5
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -88,13 +88,13 @@ namespace WebApp.Controllers
             }
         }
 
-        // GET: PagoController/Delete/5
+      
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: PagoController/Delete/5
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
@@ -109,13 +109,14 @@ namespace WebApp.Controllers
             }
         }
 
-
+        [GerenteFilter]
         public IActionResult ListarPagosMensuales()
         {
             return View();
         }
-
+        [GerenteFilter]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult ListarPagosMensuales(int mes, int año)
         {
             var pagos = _listarPagosMensuales.ObtenerPagosPorMesYAño(mes, año);

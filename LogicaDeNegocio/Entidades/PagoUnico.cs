@@ -10,7 +10,7 @@ namespace LogicaDeNegocio.Entidades
 {
     public class PagoUnico : Pago, IValidable
     {
-        public DateTime FechaPago { get; set; }
+        public DateTime? FechaPago { get; set; }
         public int? NumFactura { get; set; }
 
         public PagoUnico(): base() { }
@@ -27,13 +27,16 @@ namespace LogicaDeNegocio.Entidades
             if (MontoTotal <= 0)
                 throw new PagoException("El monto debe ser mayor que cero.");
 
-            if (FechaPago == default)
-                throw new PagoException("Debe ingresar una fecha de pago válida.");
+            if (FechaPago > DateTime.Now)
+                throw new PagoException("Debe ingresar una fecha anterior o igual a hoy.");
         }
 
         public override bool PerteneceAlMes(int mes, int anio)
         {
-            return FechaPago.Month == mes && FechaPago.Year == anio;
+            if (!FechaPago.HasValue)
+                return false;
+
+            return FechaPago.Value.Month == mes && FechaPago.Value.Year == anio;
         }
     }
 }

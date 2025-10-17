@@ -21,10 +21,22 @@ namespace AccesoADatos.Repositorios
 
         public void Add(TipoDeGasto value)
         {
-            //validar antes
-            //value.Validar();
-            _context.tiposDeGasto.Add(value);
-            _context.SaveChanges();
+            try
+            {
+                value.Validar();
+                _context.tiposDeGasto.Add(value);
+                _context.SaveChanges();
+            }
+            catch (TipoDeGastoException tge)
+            {
+                throw;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ha ocurrido un error inesperado", ex);
+            }
+
         }
 
         public TipoDeGasto FindById(int id)

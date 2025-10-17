@@ -34,14 +34,12 @@ namespace WebApp.Controllers
 
         }
 
-        // GET: TipoDeGastoController
         public ActionResult Index()
         {
             
             return View(_obtenerTiposDeGasto.ObtenerTipoDeGasto());
         }
 
-        // GET: TipoDeGastoController/Details/5
         public ActionResult Details(int id)
         {
             try
@@ -54,14 +52,13 @@ namespace WebApp.Controllers
             }            
         }
 
-        // GET: TipoDeGastoController/Create
         public ActionResult Create()
         {
             
             return View();
         }
 
-        // POST: TipoDeGastoController/Create
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(TipoDeGastoDTO tipoDeGasto)
@@ -78,7 +75,7 @@ namespace WebApp.Controllers
             }
         }
 
-        // GET: TipoDeGastoController/Edit/5
+        
         public ActionResult Edit(int id)
         {
             try
@@ -93,7 +90,7 @@ namespace WebApp.Controllers
             
         }
 
-        // POST: TipoDeGastoController/Edit/5
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(TipoDeGastoDTO tipoDTO)
@@ -113,7 +110,7 @@ namespace WebApp.Controllers
             }
         }
 
-        // GET: TipoDeGastoController/Delete/5
+        
         public ActionResult Delete(int id)
         {
             try
@@ -128,7 +125,6 @@ namespace WebApp.Controllers
             
         }
 
-        // POST: TipoDeGastoController/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

@@ -56,24 +56,6 @@ namespace AccesoADatos.Repositorios
 
         public IEnumerable<Pago> ObtenerPagosPorAnioYmes(int mes, int anio)
         {
-            //DateTime inicioMes = new DateTime(anio, mes, 1);
-            //DateTime finMes = inicioMes.AddMonths(1);
-
-            //IEnumerable<Pago> unicos = _context.pagos
-            //    .OfType<PagoUnico>()
-            //    .Include(p => p.Usuario)
-            //    .Include(p => p.TipoDeGasto)
-            //    .Where(p => p.FechaPago >= inicioMes && p.FechaPago < finMes)
-            //    .ToList();
-
-            //IEnumerable<Pago> recurrentes = _context.pagos
-            //    .OfType<PagoRecurrente>()
-            //    .Include(p => p.Usuario)
-            //    .Include(p => p.TipoDeGasto)
-            //    .Where(p => p.FechaDesde <= finMes && p.FechaHasta >= inicioMes)
-            //    .ToList();
-
-            //return unicos.Union(recurrentes);
 
             var pagos = _context.pagos
                         .Include(p => p.Usuario)
