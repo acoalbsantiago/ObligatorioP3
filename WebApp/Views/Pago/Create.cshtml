@@ -1,4 +1,4 @@
-﻿@using LogicaDeNegocio.Enums
+﻿@using Enums
 @model LogicaDeAplicacion.DTOs.PagoDTO
 
 @{
@@ -8,6 +8,12 @@
 {
     <div class="alert alert-danger">
         @ViewBag.Error
+    </div>
+}
+@if (!string.IsNullOrWhiteSpace(ViewBag.Mensaje))
+{
+    <div class="alert alert-success">
+        @ViewBag.Mensaje
     </div>
 }
 
@@ -81,14 +87,11 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="submit" class="btn btn-primary">Crear</button>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -23,8 +23,21 @@ namespace AccesoADatos.Repositorios
 
         public void Add(Usuario value)
         {
-            _context.Usuario.Add(value);
-            _context.SaveChanges();
+            try
+            {
+                value.Validar();
+                _context.Usuario.Add(value);
+                _context.SaveChanges();
+            }
+            catch (UsuarioException)
+            {
+                    throw;
+            
+            }catch (Exception ex)
+            {
+                throw new Exception("Ha ocurrido un error inesperado", ex);
+            }
+           
         }
 
         public Usuario FindById(int id)

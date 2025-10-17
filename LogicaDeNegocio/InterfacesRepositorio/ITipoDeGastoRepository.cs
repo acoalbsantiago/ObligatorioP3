@@ -9,5 +9,6 @@ namespace LogicaDeNegocio.InterfacesRepositorio
 {
     public interface ITipoDeGastoRepository : IRepository<TipoDeGasto>
     {
+        public TipoDeGasto AddSecundario(TipoDeGasto tipo);
     }
 }

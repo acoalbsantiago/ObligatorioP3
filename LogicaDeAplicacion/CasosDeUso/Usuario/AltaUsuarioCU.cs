@@ -2,6 +2,7 @@
 using LogicaDeAplicacion.InterfacesCU.Usuario;
 using LogicaDeAplicacion.Mappers;
 using LogicaDeNegocio.Entidades;
+using LogicaDeNegocio.Exceptions;
 using LogicaDeNegocio.InterfacesRepositorio;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,18 @@ namespace LogicaDeAplicacion.CasosDeUso.Usuario
             {
                 usuario.RegenerarCorreo();
             }
-            _repo.Add(usuario);
+            try
+            {
+                _repo.Add(usuario);
+            }
+            catch (UsuarioException)
+            {
+                throw;
+            }catch (Exception ex)
+            {
+                throw new ApplicationException("Ocurrió un error al registrar el usuario.", ex);
+            }
+            
         }
        
     }

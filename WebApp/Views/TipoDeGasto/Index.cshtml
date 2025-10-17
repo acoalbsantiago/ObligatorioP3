@@ -6,12 +6,12 @@
 
 <h1>Tipos De Pago</h1>
 
-@if (TempData["Error"] != null)
+@if (!string.IsNullOrWhiteSpace(ViewBag.Error))
 {
     <div class="alert alert-danger">
-        @TempData["Error"]
+        @ViewBag.Error
     </div>
-} 
+}
 
 <p>
     <a asp-action="Create">Create New</a>

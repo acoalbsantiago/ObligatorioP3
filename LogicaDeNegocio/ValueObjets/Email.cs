@@ -28,21 +28,18 @@ namespace LogicaDeNegocio.ValueObjets
 
             var normalized = texto.Normalize(NormalizationForm.FormD);
 
-            // Quita marcas diacríticas (tildes)
-            var sinTildes = new StringBuilder();
+            StringBuilder sinTildes = new StringBuilder();
             foreach (var c in normalized)
             {
                 var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
                 if (unicodeCategory != UnicodeCategory.NonSpacingMark)
                     sinTildes.Append(c);
             }
-
-            // Convierte eñes → n
+           
             string limpio = sinTildes.ToString()
                 .Replace('ñ', 'n')
                 .Replace('Ñ', 'n');
 
-            // Quita cualquier caracter no alfanumérico (por si hay espacios o guiones)
             limpio = Regex.Replace(limpio, @"[^a-zA-Z]", "");
 
             return limpio.ToLower();

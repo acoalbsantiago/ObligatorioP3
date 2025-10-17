@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AccesoADatos\AccesoADatos.csproj" />
+    <ProjectReference Include="..\Enums\Enums.csproj" />
     <ProjectReference Include="..\LogicaDeAplicacion\LogicaDeAplicacion.csproj" />
     <ProjectReference Include="..\LogicaDeNegocio\LogicaDeNegocio.csproj" />
   </ItemGroup>

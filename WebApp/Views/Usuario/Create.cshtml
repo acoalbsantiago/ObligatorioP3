@@ -1,4 +1,5 @@
-﻿@model LogicaDeAplicacion.DTOs.UsuarioDTO
+﻿@using Enums
+@model LogicaDeAplicacion.DTOs.UsuarioDTO
 
 @{
     ViewData["Title"] = "Create";
@@ -35,15 +36,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Rol" class="control-label"></label>
-                <input asp-for="Rol" class="form-control" />
+                <select asp-for="Rol" class="form-control"
+                        asp-items="Html.GetEnumSelectList<RolUsuario>()">
+                    <option value="">-- Seleccione rol de usuario --</option>
+                </select>
                 <span asp-validation-for="Rol" class="text-danger"></span>
             </div>
-            @* <div class="form-group">
-                <label asp-for="EquipoId" class="control-label"></label>
-                <input asp-for="EquipoId" class="form-control" />
-                <span asp-validation-for="EquipoId" class="text-danger"></span>
-            </div> *@
-            @* test de lista de equipos a seleccionatr *@
             <div class="form-group">
                 <label for="EquipoId">Equipo</label>
                 <select asp-for="EquipoId" asp-items="ViewBag.Equipos" class="form-control"></select>
@@ -55,9 +53,6 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

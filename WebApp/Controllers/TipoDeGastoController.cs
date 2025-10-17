@@ -82,9 +82,9 @@ namespace WebApp.Controllers
             {
                 return View(_obtenerTipoDeGastoPorId.ObtenerTipoDeGastoPorId(id));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                TempData["Error"] = ex.Message;
+                ViewBag.Error = "Sucedio un error inesperado";
                 return RedirectToAction(nameof(Index));
             }
             
@@ -102,9 +102,9 @@ namespace WebApp.Controllers
                 return RedirectToAction(nameof(Index));
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                
+                ViewBag.Error = "Sucedio un error inesperado";
                 return RedirectToAction(nameof(Index));
                 
             }
@@ -117,8 +117,9 @@ namespace WebApp.Controllers
             {
                 return View(_obtenerTipoDeGastoPorId.ObtenerTipoDeGastoPorId(id));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
+                ViewBag.Error = "Sucedio un error inesperado";
                 return RedirectToAction(nameof(Index));
                
             }
@@ -136,9 +137,9 @@ namespace WebApp.Controllers
                 return RedirectToAction(nameof(Index));
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                ViewBag.Error = ex.Message;
+                ViewBag.Error = "Sucedio un error inesperado";
                 return View();
 
             }

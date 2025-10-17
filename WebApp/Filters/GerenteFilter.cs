@@ -9,7 +9,7 @@ namespace WebApp.Filters
         {
             var rol = context.HttpContext.Session.GetString("rol");
 
-            if (string.IsNullOrWhiteSpace(rol) || rol != "Gerente")
+            if (string.IsNullOrWhiteSpace(rol) || rol != "GERENTE")
             {
                 context.Result = new RedirectToActionResult(
                     "Index",

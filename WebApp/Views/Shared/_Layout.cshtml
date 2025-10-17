@@ -33,17 +33,17 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="TipoDeGasto" asp-action="Index">🧾 Tipos de Gasto </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Create">👤 Alta de Usuario</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Create">👤 Alta de Usuario</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Pago" asp-action="Create">💸 Registrar Pago</a>
                         </li>
-                       
+            
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Pago" asp-action="ListarPagosMensuales">📅 Listado Mensual de Pagos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="UsuariosQueSuperanPagoDado">💰 Usuarios que superan monto</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="UsuariosQueSuperanPagoDado">💰 Usuarios que superan monto</a>
                         </li>
                         @if (Context.Session.GetInt32("usuarioId") != null)
                         {

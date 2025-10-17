@@ -57,10 +57,6 @@ namespace LogicaDeNegocio.Entidades
             if (TipoDeGastoId <= 0)
                 throw new PagoException("Debe seleccionar un tipo de gasto válido.");
 
-
-            if (FechaDesde == default || FechaHasta == default)
-                throw new PagoException("Debe ingresar un rango de fechas válido.");
-
             if (FechaDesde > FechaHasta)
                 throw new PagoException("La fecha de inicio no puede ser posterior a la fecha de fin.");
 
@@ -70,10 +66,9 @@ namespace LogicaDeNegocio.Entidades
 
         public override bool PerteneceAlMes(int mes, int anio)
         {
-            var inicioMes = new DateTime(anio, mes, 1);
-            var finMes = inicioMes.AddMonths(1).AddDays(-1);
+            DateTime inicioMes = new DateTime(anio, mes, 1);
+            DateTime finMes = inicioMes.AddMonths(1).AddDays(-1);
 
-            // Se considera que el pago pertenece al mes si el rango se solapa
             return FechaDesde <= finMes && FechaHasta >= inicioMes;
         }
     }

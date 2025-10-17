@@ -8,7 +8,7 @@ using WebApp.Filters;
 
 namespace WebApp.Controllers
 {
-    //[LogueadoFilter]
+    [LogueadoFilter]
     public class PagoController : Controller
     {
         private IAgregarPago _agregarPago;
@@ -26,6 +26,7 @@ namespace WebApp.Controllers
                 _listarPagosMensuales = listarPagosMensuales;
         }
 
+        [NoDisponibleFilter]
         public ActionResult Index()
         {
             
@@ -54,7 +55,8 @@ namespace WebApp.Controllers
             {
                 int usuarioId = HttpContext.Session.GetInt32("usuarioId").Value;
                 _agregarPago.AltaPago(pagoDTO, usuarioId);
-                return RedirectToAction(nameof(Index));
+                ViewBag.Mensaje = "Pago Registrado con exito";
+                return View();
             }
             catch(PagoException pe)
             {
@@ -117,9 +119,9 @@ namespace WebApp.Controllers
         [GerenteFilter]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult ListarPagosMensuales(int mes, int año)
+        public IActionResult ListarPagosMensuales(int mes, int anio)
         {
-            var pagos = _listarPagosMensuales.ObtenerPagosPorMesYAño(mes, año);
+            var pagos = _listarPagosMensuales.ObtenerPagosPorMesYAño(mes, anio);
 
             if (!pagos.Any())
                 ViewBag.Mensaje = "No existen pagos registrados en ese período.";

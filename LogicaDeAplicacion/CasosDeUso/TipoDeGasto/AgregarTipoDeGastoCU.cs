@@ -24,8 +24,8 @@ namespace LogicaDeAplicacion.CasosDeUso.TipoDeGasto
         }
         public void AgregarTipoDeGasto(TipoDeGastoDTO tipoDeGasto,int usuarioId)
         {
-            _repo.Add(TipoDeGastoMapper.FromDTO(tipoDeGasto));
-            _auditoria.RegistrarCambioAuditoria(tipoDeGasto.Id, "Agregar", usuarioId);
+            var nuevoTipo = _repo.AddSecundario(TipoDeGastoMapper.FromDTO(tipoDeGasto));
+            _auditoria.RegistrarCambioAuditoria(nuevoTipo.Id, "Agregar", usuarioId);
         }
     }
 }

@@ -39,6 +39,27 @@ namespace AccesoADatos.Repositorios
 
         }
 
+
+        public TipoDeGasto AddSecundario(TipoDeGasto tipo)
+        {
+            try
+            {
+                tipo.Validar();
+                _context.tiposDeGasto.Add(tipo);
+                _context.SaveChanges();
+                return tipo;
+            }
+            catch (TipoDeGastoException tge)
+            {
+                throw;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ha ocurrido un error inesperado", ex);
+            }
+        }
+
         public TipoDeGasto FindById(int id)
         {
             TipoDeGasto tipo = _context.tiposDeGasto.SingleOrDefault(t => t.Id == id);

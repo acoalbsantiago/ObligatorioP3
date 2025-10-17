@@ -1,136 +1,57 @@
-using System.Diagnostics;
-using LogicaDeAplicacion.DTOs;
-using LogicaDeAplicacion.InterfacesCU.Equipo;
-using LogicaDeAplicacion.InterfacesCU.Pago;
+﻿using LogicaDeAplicacion.DTOs;
 using LogicaDeAplicacion.InterfacesCU.Usuario;
-using LogicaDeNegocio.Entidades;
 using LogicaDeNegocio.Exceptions;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using WebApp.Filters;
-using WebApp.Models;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace WebApp.Controllers;
-
-
-public class HomeController : Controller
+namespace WebApp.Controllers
 {
-    private ILogin _login;
-    private IAltaUsuario _altaUsuario;
-    private IObtenerEquipos _obtenerEquipos;
-    private IObtenerUsuariosSegunMonto _obtenerUsuarioSegunMonto;
+    public class HomeController : Controller
+    {
+        private ILogin _login;
 
-    public HomeController(ILogin ILogin,
-        IAltaUsuario altaUsuario,
-        IObtenerEquipos obtenerEquipos,
-        IObtenerUsuariosSegunMonto obtenerUsuarioSegunMonto)
-    {
-        _login = ILogin;
-        _altaUsuario = altaUsuario;
-        _obtenerEquipos = obtenerEquipos;
-        _obtenerUsuarioSegunMonto = obtenerUsuarioSegunMonto;
-    }
-
- 
-    public IActionResult Index(string error)
-    {
-        ViewBag.Error = error;
-        return View();
- 
-    }
-    
-    public IActionResult Login(string error)
-    {
-        ViewBag.Error = error;
-        return View();
-    }
-    [HttpPost]
-    public IActionResult Login(string Email, string Password)
-    {
-        try
+        public HomeController(ILogin login)
         {
-            UsuarioDTO logueado = this._login.Login(Email, Password);
-            HttpContext.Session.SetString("email", logueado.Email.Correo);
-            HttpContext.Session.SetInt32("usuarioId", logueado.Id);
-            HttpContext.Session.SetString("rol", logueado.Rol);
-            return RedirectToAction("Index");
+            _login = login;
         }
-        catch (UsuarioException uex)
+        public IActionResult Index(string error)
         {
-            ViewBag.Error = uex.Message;
-            return View();
-        }
-        catch (Exception ex)
-        {
-            ViewBag.Error = "Sucedio un error inesperado";
-            return View();
-        }
-      
-    }
-    
-    [AdminYGerenteFilter]
-    public IActionResult Create()
-    {
-        try
-        {
-            var equipos = _obtenerEquipos.ObtenerEquipos();
-
-            ViewBag.Equipos = new SelectList(equipos, "Id", "Nombre");
-            return View();
-        }
-        catch (Exception ex)
-        {
+            ViewBag.Error = error;
             return View();
 
         }
-        
-    }
-
-    [AdminYGerenteFilter]
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public ActionResult Create(UsuarioDTO usuarioDTO)
-    {
-        try
+        public IActionResult Login(string error)
         {
-            //int usuarioId = HttpContext.Session.GetInt32("usuarioId").Value;
-            _altaUsuario.AgregarUsuario(usuarioDTO);
-            return RedirectToAction(nameof(Index));
-        }
-        catch (Exception ex)
-        {
+            ViewBag.Error = error;
             return View();
         }
-    }
-
-    [GerenteFilter]
-    public IActionResult UsuariosQueSuperanPagoDado()
-    {
-        return View();
-    }
-
-    [GerenteFilter]
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public IActionResult UsuariosQueSuperanPagoDado(decimal monto)
-    {
-        try
+        [HttpPost]
+        public IActionResult Login(string Email, string Password)
         {
-            var usuarios = _obtenerUsuarioSegunMonto.ObtenerUsuariosSegunMonto(monto);
-            return View(usuarios);
-        }
-        catch (Exception ex)
-        {
+            try
+            {
+                UsuarioDTO logueado = this._login.Login(Email, Password);
+                HttpContext.Session.SetString("email", logueado.Email.Correo);
+                HttpContext.Session.SetInt32("usuarioId", logueado.Id);
+                HttpContext.Session.SetString("rol", logueado.Rol);
+                return RedirectToAction("Index", "Home");
+            }
+            catch (UsuarioException uex)
+            {
+                ViewBag.Error = uex.Message;
+                return View();
+            }
+            catch (Exception)
+            {
+                ViewBag.Error = "Sucedio un error inesperado";
+                return View();
+            }
 
-            ViewBag.Error = "Ocurrio un error al filtrar los datos";
-            return View();
         }
-        
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
     }
-    public IActionResult Logout()
-    {
-        HttpContext.Session.Clear();
-        return RedirectToAction("Index");
-    }
-}   
+}
